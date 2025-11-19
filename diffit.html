@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffit - AI Tool Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0 1rem 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+        .back-link:before {
+            content: "← ";
+        }
+        .tool-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .tool-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .tool-hero .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .ai-notice {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .ai-notice h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .ai-notice p {
+            color: #78350f;
+            line-height: 1.8;
+        }
+        .ai-tools {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .ai-tool-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            color: #92400e;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .ai-tool-badge:hover {
+            background-color: #f59e0b;
+            color: white;
+        }
+        .example-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+        .example-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .example-card {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        .example-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .example-input {
+            background-color: #f0f9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--primary-color);
+        }
+        .example-output {
+            background-color: #f0fdf4;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--accent-color);
+        }
+        .label {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .diff-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .level-card {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid;
+        }
+        .level-lower {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+        .level-middle {
+            background-color: #fef3c7;
+            border-color: #f59e0b;
+        }
+        .level-higher {
+            background-color: #dcfce7;
+            border-color: #10b981;
+        }
+        .level-card h5 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>AI in the Classroom</h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <section class="tool-hero">
+        <div class="container">
+            <div class="hero-icon">📊</div>
+            <h1>Diffit</h1>
+            <p class="hero-subtitle">AI-Powered Differentiation & Scaffolding Tool</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="ai-notice">
+                <h3>💡 How to Use These Prompts</h3>
+                <p>
+                    Diffit automates differentiation, but you can create similar scaffolded resources using AI tools.
+                    Copy these prompts and use them in:
+                </p>
+                <div class="ai-tools">
+                    <a href="https://chat.openai.com" target="_blank" class="ai-tool-badge">ChatGPT</a>
+                    <a href="https://gemini.google.com" target="_blank" class="ai-tool-badge">Google Gemini</a>
+                    <a href="https://claude.ai" target="_blank" class="ai-tool-badge">Claude</a>
+                    <a href="https://copilot.microsoft.com" target="_blank" class="ai-tool-badge">Microsoft Copilot</a>
+                </div>
+                <p style="margin-top: 1rem;">
+                    These prompts help you create multiple versions of content for different ability levels, ensuring all students can access learning.
+                </p>
+            </div>
+
+            <div class="tool-description">
+                <h2>What is Diffit?</h2>
+                <p>
+                    Diffit is an AI tool that automatically adjusts reading levels and creates differentiated versions of texts.
+                    It's perfect for creating scaffolded materials that meet diverse learner needs without spending hours rewriting.
+                    The prompts below show you how to create similarly differentiated content using general AI tools.
+                </p>
+            </div>
+
+            <!-- Example 1: Three-Tier Differentiation -->
+            <div class="example-section">
+                <h3>Example 1: Three-Tier Text Differentiation</h3>
+
+                <div class="example-card">
+                    <h4>Creating Lower, Middle, and Higher Reading Levels</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "Rewrite the following text about the Roman Empire for Year 8 students at three different reading levels:
+                            <br><br>
+                            <strong>LOWER LEVEL (Reading age 8-9):</strong>
+                            <br>• Use simple vocabulary and short sentences (10-15 words)
+                            <br>• Present tense where possible
+                            <br>• Add a glossary of key terms
+                            <br>• Include sentence starters for discussion questions
+                            <br>• Add visual descriptions (what diagrams would help)
+                            <br><br>
+                            <strong>MIDDLE LEVEL (Reading age 11-12):</strong>
+                            <br>• Standard academic vocabulary
+                            <br>• Mix of simple and complex sentences
+                            <br>• Key terms highlighted
+                            <br>• Some analytical language
+                            <br><br>
+                            <strong>HIGHER LEVEL (Reading age 13-14):</strong>
+                            <br>• Advanced vocabulary
+                            <br>• Complex sentence structures
+                            <br>• Analytical and evaluative language
+                            <br>• Challenge questions requiring inference
+                            <br><br>
+                            Keep the same key facts and learning objectives across all versions.
+                            <br><br>
+                            ORIGINAL TEXT: [Paste your text here]"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output:</span>
+
+                        <div class="diff-levels">
+                            <div class="level-card level-lower">
+                                <h5>📘 LOWER LEVEL</h5>
+                                <p><strong>The Roman Empire</strong></p>
+                                <p>
+                                    The Roman Empire was very big. It started in Italy. Then it grew to cover many countries.
+                                    The Romans were good at fighting. They had strong armies. They built roads and buildings.
+                                    Many people spoke Latin. Latin was the Roman language. The empire lasted for hundreds of years.
+                                </p>
+                                <p><strong>Key Words:</strong><br>
+                                • Empire = a group of countries ruled by one leader<br>
+                                • Latin = the Roman language<br>
+                                • Lasted = continued for a long time</p>
+                                <p><strong>Discussion:</strong><br>
+                                • The Roman Empire was big because...<br>
+                                • Romans were successful because...</p>
+                            </div>
+
+                            <div class="level-card level-middle">
+                                <h5>📗 MIDDLE LEVEL</h5>
+                                <p><strong>The Roman Empire</strong></p>
+                                <p>
+                                    The Roman Empire was one of history's largest civilizations, originating in Italy before expanding
+                                    across Europe, North Africa, and the Middle East. The Romans achieved this through superior military
+                                    tactics and organized legions. Their lasting influence includes infrastructure like roads and aqueducts,
+                                    the Latin language, and legal systems that influenced modern law. The empire demonstrated remarkable
+                                    longevity, lasting approximately 500 years in the West and over 1,000 years in the East.
+                                </p>
+                                <p><strong>Key Terms:</strong> civilizations, legions, infrastructure, aqueducts, longevity</p>
+                            </div>
+
+                            <div class="level-card level-higher">
+                                <h5>📕 HIGHER LEVEL</h5>
+                                <p><strong>The Roman Empire</strong></p>
+                                <p>
+                                    The Roman Empire represents one of antiquity's most formidable civilizations, evolving from the
+                                    Italian peninsula to encompass vast territories spanning three continents. Roman hegemony was
+                                    established through sophisticated military strategy, including the deployment of disciplined legions
+                                    and strategic fortifications. Their enduring legacy encompasses monumental engineering achievements
+                                    such as extensive road networks and aqueduct systems, the dissemination of Latin which became the
+                                    foundation of Romance languages, and juridical frameworks that fundamentally influenced contemporary
+                                    legal systems. The empire's unprecedented longevity—approximately five centuries in the Western
+                                    territories and over a millennium in the Byzantine East—testifies to the effectiveness of Roman
+                                    administrative and cultural integration.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <h4>Differentiated Comprehension Questions</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "Create three sets of comprehension questions for the text above, one for each reading level.
+                            <br><br>
+                            <strong>LOWER:</strong> 6 retrieval questions with sentence starters and a word bank
+                            <br><strong>MIDDLE:</strong> 6 questions mixing retrieval, inference, and language analysis
+                            <br><strong>HIGHER:</strong> 6 analytical questions requiring evaluation and synthesis
+                            <br><br>
+                            All questions should assess the same learning objectives but with appropriate scaffolding."
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output:</span>
+
+                        <div class="diff-levels">
+                            <div class="level-card level-lower">
+                                <h5>📘 LOWER LEVEL Questions</h5>
+                                <p>1. Where did the Roman Empire start?<br>
+                                <em>Word bank: Italy, Greece, Egypt</em></p>
+
+                                <p>2. The Romans were good at _______.<br>
+                                <em>Complete the sentence.</em></p>
+
+                                <p>3. What language did Romans speak?<br>
+                                <em>The Romans spoke...</em></p>
+
+                                <p>4. Name two things Romans built.<br>
+                                <em>Romans built _______ and _______.</em></p>
+
+                                <p>5. How long did the empire last?<br>
+                                <em>Circle: tens of years / hundreds of years / thousands of years</em></p>
+
+                                <p>6. Why were the Romans successful?<br>
+                                <em>The Romans were successful because...</em></p>
+                            </div>
+
+                            <div class="level-card level-middle">
+                                <h5>📗 MIDDLE LEVEL Questions</h5>
+                                <p>1. Describe how the Roman Empire expanded beyond Italy.</p>
+
+                                <p>2. What evidence suggests the Romans had effective military organization?</p>
+
+                                <p>3. Identify two examples of Roman infrastructure mentioned in the text.</p>
+
+                                <p>4. Why is Latin described as important? Give two reasons.</p>
+
+                                <p>5. What does the word "longevity" tell us about the Roman Empire?</p>
+
+                                <p>6. Compare the duration of the Western and Eastern Roman Empires.</p>
+                            </div>
+
+                            <div class="level-card level-higher">
+                                <h5>📕 HIGHER LEVEL Questions</h5>
+                                <p>1. Analyze how the author presents Roman military superiority. What language choices convey this?</p>
+
+                                <p>2. Evaluate the significance of Roman infrastructure in establishing long-term control.</p>
+
+                                <p>3. To what extent does linguistic influence reflect political power? Use the Roman example.</p>
+
+                                <p>4. The text describes the empire's duration as "unprecedented." Justify this claim with evidence.</p>
+
+                                <p>5. Synthesize the factors that contributed to Roman expansion and longevity.</p>
+
+                                <p>6. Compare the concept of "hegemony" with "empire." How does this terminology shape our understanding?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2: Scaffolded Instructions -->
+            <div class="example-section">
+                <h3>Example 2: Scaffolded Task Instructions</h3>
+
+                <div class="example-card">
+                    <h4>Breaking Down Complex Tasks</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "Create scaffolded instructions for a Year 10 Science investigation on 'Factors Affecting Enzyme Activity'.
+                            Create three versions with increasing independence:
+                            <br><br>
+                            <strong>FULL SCAFFOLD:</strong>
+                            <br>• Step-by-step numbered instructions
+                            <br>• What to do and why
+                            <br>• Equipment listed for each step
+                            <br>• Safety reminders at relevant points
+                            <br>• Expected results at each stage
+                            <br>• Sentence starters for conclusions
+                            <br><br>
+                            <strong>MEDIUM SCAFFOLD:</strong>
+                            <br>• Main stages outlined
+                            <br>• Key decision points highlighted
+                            <br>• Prompts for what to consider
+                            <br>• Less detailed instructions
+                            <br><br>
+                            <strong>MINIMAL SCAFFOLD:</strong>
+                            <br>• Research question and hypothesis framework
+                            <br>• Success criteria
+                            <br>• Variables to consider
+                            <br>• Safety considerations only
+                            <br>• Student designs the method"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output:</span>
+
+                        <div class="diff-levels">
+                            <div class="level-card level-lower">
+                                <h5>🔬 FULL SCAFFOLD</h5>
+                                <p><strong>Investigation: Temperature and Enzyme Activity</strong></p>
+
+                                <p><strong>Step 1: Set up your equipment</strong><br>
+                                You need: test tubes (5), water baths at different temperatures (20°C, 30°C, 40°C, 50°C, 60°C),
+                                hydrogen peroxide, potato pieces, ruler, stopwatch<br>
+                                <em>Why: You're testing different temperatures to see which works best for the enzyme</em></p>
+
+                                <p><strong>Step 2: Prepare the potato</strong><br>
+                                Cut 5 potato cubes exactly 1cm × 1cm × 1cm<br>
+                                ⚠️ Safety: Be careful with knives<br>
+                                <em>Why: Same size cubes = fair test</em></p>
+
+                                <p><strong>Step 3: Set up test tubes</strong><br>
+                                Add 5ml hydrogen peroxide to each test tube<br>
+                                Label tubes with temperatures<br>
+                                Place one tube in each water bath<br>
+                                Wait 5 minutes<br>
+                                <em>Why: The hydrogen peroxide needs to reach the correct temperature</em></p>
+
+                                <p><strong>Step 4: Add potato and observe</strong><br>
+                                Drop one potato cube into first test tube<br>
+                                Start stopwatch immediately<br>
+                                Watch for bubbles (this is oxygen gas)<br>
+                                Count bubbles for 30 seconds<br>
+                                Record your results<br>
+                                <em>Expected: You should see bubbles forming</em></p>
+
+                                <p><strong>Step 5: Repeat</strong><br>
+                                Do the same for all 5 temperatures<br>
+                                Record all results in your table</p>
+
+                                <p><strong>Write your conclusion:</strong><br>
+                                • The enzyme worked best at _____°C because...<br>
+                                • I know this because...<br>
+                                • This happened because enzymes...</p>
+                            </div>
+
+                            <div class="level-card level-middle">
+                                <h5>🔬 MEDIUM SCAFFOLD</h5>
+                                <p><strong>Investigation: Temperature and Enzyme Activity</strong></p>
+
+                                <p><strong>Your task:</strong> Investigate how temperature affects the enzyme catalase in potato</p>
+
+                                <p><strong>Main Stages:</strong><br>
+                                1. Prepare equipment and materials<br>
+                                2. Set up water baths at 5 different temperatures (20-60°C range)<br>
+                                3. Prepare standardized potato samples<br>
+                                4. Test enzyme activity at each temperature<br>
+                                5. Measure and record the rate of reaction<br>
+                                6. Analyze results and draw conclusions</p>
+
+                                <p><strong>Key Decisions:</strong><br>
+                                • What temperature range will you test? (Consider optimum enzyme temperature)<br>
+                                • How will you measure enzyme activity? (Bubbles, oxygen volume, or time taken?)<br>
+                                • How will you ensure it's a fair test?<br>
+                                • What will you keep the same (control variables)?</p>
+
+                                <p><strong>Safety:</strong> Take care when cutting potato and using hot water</p>
+
+                                <p><strong>Analysis:</strong><br>
+                                • Identify patterns in your results<br>
+                                • Explain why temperature affects enzyme activity<br>
+                                • Evaluate the reliability of your method</p>
+                            </div>
+
+                            <div class="level-card level-higher">
+                                <h5>🔬 MINIMAL SCAFFOLD</h5>
+                                <p><strong>Investigation: Factors Affecting Enzyme Activity</strong></p>
+
+                                <p><strong>Research Question:</strong><br>
+                                How does [chosen factor] affect the rate of catalase enzyme activity in potato tissue?</p>
+
+                                <p><strong>Success Criteria:</strong><br>
+                                ✓ Clear hypothesis with scientific reasoning<br>
+                                ✓ Identified independent, dependent, and control variables<br>
+                                ✓ Method that could be replicated by another scientist<br>
+                                ✓ Appropriate measurements with units<br>
+                                ✓ Risk assessment included<br>
+                                ✓ Data presented in a table and graph<br>
+                                ✓ Analysis explains patterns using enzyme theory<br>
+                                ✓ Evaluation of method and improvements suggested</p>
+
+                                <p><strong>Variables to Consider:</strong><br>
+                                Independent: Temperature, pH, substrate concentration, enzyme concentration<br>
+                                Dependent: Rate of reaction (how will you measure this?)<br>
+                                Control: [You decide what must stay constant]</p>
+
+                                <p><strong>Safety Considerations:</strong><br>
+                                Consider risks associated with: sharp equipment, hot/cold temperatures, chemicals used</p>
+
+                                <p><strong>Extension:</strong><br>
+                                Research the specific temperature and pH optimum for catalase and explain why your results align or differ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Vocabulary Support -->
+            <div class="example-section">
+                <h3>Example 3: Vocabulary Scaffolding</h3>
+
+                <div class="example-card">
+                    <h4>Adding Vocabulary Support for EAL and Lower Ability Students</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "Take this [SUBJECT] text and add comprehensive vocabulary support for EAL or lower ability Year 9 students:
+                            <br>• Identify 10-15 challenging words
+                            <br>• Provide simple definitions (5-8 words each)
+                            <br>• Give an example sentence using the word
+                            <br>• Suggest a synonym in simpler language
+                            <br>• Where appropriate, add a visual description or analogy
+                            <br>• Create a sentence frame using the word
+                            <br><br>
+                            Format as a glossary that students can refer to while reading.
+                            <br><br>
+                            TEXT: [Paste your text]"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output:</span>
+
+                        <p><strong>Vocabulary Support: Photosynthesis</strong></p>
+
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                            <tr style="background-color: var(--primary-color); color: white;">
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Word</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Simple Definition</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Example & Support</th>
+                            </tr>
+                            <tr style="background-color: white;">
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Photosynthesis</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">How plants make food using light</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
+                                    <strong>Example:</strong> "Plants use photosynthesis to create energy"<br>
+                                    <strong>Simpler word:</strong> "making food from light"<br>
+                                    <strong>Analogy:</strong> Like cooking, but using sunlight instead of heat<br>
+                                    <strong>Use it:</strong> "_________ happens in the leaves of plants"
+                                </td>
+                            </tr>
+                            <tr style="background-color: var(--light-bg);">
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Chlorophyll</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">The green substance that captures light</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
+                                    <strong>Example:</strong> "Chlorophyll gives plants their green color"<br>
+                                    <strong>Simpler word:</strong> "green stuff in leaves"<br>
+                                    <strong>Visual:</strong> Think of it as tiny solar panels in the leaves<br>
+                                    <strong>Use it:</strong> "________ absorbs light energy from the sun"
+                                </td>
+                            </tr>
+                            <tr style="background-color: white;">
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Absorb</strong></td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">To take in or soak up</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
+                                    <strong>Example:</strong> "Plants absorb water through their roots"<br>
+                                    <strong>Simpler word:</strong> "take in" or "soak up"<br>
+                                    <strong>Analogy:</strong> Like a sponge soaking up water<br>
+                                    <strong>Use it:</strong> "The roots ________ nutrients from the soil"
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p style="margin-top: 1rem;"><em>[...continues with more vocabulary]</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 4: Sentence Starters and Frames -->
+            <div class="example-section">
+                <h3>Example 4: Sentence Starters and Writing Frames</h3>
+
+                <div class="example-card">
+                    <h4>Creating Scaffolded Writing Support</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "Create a scaffolded writing frame for Year 9 students writing a persuasive letter about environmental issues.
+                            Provide three levels of support:
+                            <br><br>
+                            <strong>HIGH SUPPORT:</strong> Complete sentence starters for each paragraph with word banks
+                            <br><strong>MEDIUM SUPPORT:</strong> Paragraph openers and linking phrases only
+                            <br><strong>LOW SUPPORT:</strong> Structure outline and technique reminders only
+                            <br><br>
+                            Include: opening, 3 main points, counterargument, conclusion"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output:</span>
+
+                        <div class="diff-levels">
+                            <div class="level-card level-lower">
+                                <h5>✏️ HIGH SUPPORT Frame</h5>
+
+                                <p><strong>Opening:</strong><br>
+                                I am writing to you about _______________ because _______________.<br>
+                                This is important because _______________.<br>
+                                <em>Word bank: climate change, plastic pollution, deforestation, urgent, serious, affecting</em></p>
+
+                                <p><strong>First Main Point:</strong><br>
+                                Firstly, we need to _______________ because _______________.<br>
+                                For example, _______________.<br>
+                                This shows that _______________.<br>
+                                <em>Word bank: reduce, prevent, protect, evidence shows, studies prove, statistics reveal</em></p>
+
+                                <p><strong>Second Main Point:</strong><br>
+                                Furthermore, another reason is _______________.<br>
+                                This is significant because _______________.<br>
+                                If we don't act, _______________.<br>
+                                <em>Word bank: furthermore, additionally, moreover, crucial, vital, essential</em></p>
+
+                                <p><strong>Third Main Point:</strong><br>
+                                Finally, I believe that _______________.<br>
+                                This would help by _______________.<br>
+                                <em>Word bank: solutions, benefits, positive impact, improve, enhance</em></p>
+
+                                <p><strong>Counterargument:</strong><br>
+                                Some people might argue that _______________.<br>
+                                However, I disagree because _______________.<br>
+                                <em>Word bank: expensive, difficult, unrealistic, but, nevertheless, despite this</em></p>
+
+                                <p><strong>Conclusion:</strong><br>
+                                In conclusion, it is clear that _______________.<br>
+                                I urge you to _______________.<br>
+                                Together we can _______________.<br>
+                                <em>Word bank: take action, make changes, implement, future generations, sustainable</em></p>
+                            </div>
+
+                            <div class="level-card level-middle">
+                                <h5>✏️ MEDIUM SUPPORT Frame</h5>
+
+                                <p><strong>Opening:</strong><br>
+                                • State your purpose clearly<br>
+                                • Explain why the issue matters<br>
+                                <em>Start with: I am writing to... / This letter concerns...</em></p>
+
+                                <p><strong>Main Arguments:</strong><br>
+                                <strong>Point 1:</strong> Firstly... / To begin with...<br>
+                                <strong>Point 2:</strong> Furthermore... / In addition... / Moreover...<br>
+                                <strong>Point 3:</strong> Finally... / Most importantly...</p>
+
+                                <p>For each point:<br>
+                                • Make your point<br>
+                                • Provide evidence or example<br>
+                                • Explain the impact</p>
+
+                                <p><strong>Counterargument:</strong><br>
+                                • Some people believe... / Critics argue...<br>
+                                • However... / Nevertheless... / Despite this...</p>
+
+                                <p><strong>Conclusion:</strong><br>
+                                • Summarize key points: In conclusion... / To summarize...<br>
+                                • Call to action: I urge you... / It is essential that...<br>
+                                • End powerfully: Together... / The future depends...</p>
+                            </div>
+
+                            <div class="level-card level-higher">
+                                <h5>✏️ LOW SUPPORT Frame</h5>
+
+                                <p><strong>Structure:</strong><br>
+                                1. Engaging opening that hooks the reader<br>
+                                2. Three well-developed arguments<br>
+                                3. Counterargument with refutation<br>
+                                4. Powerful conclusion with call to action</p>
+
+                                <p><strong>Persuasive Techniques to Include:</strong><br>
+                                ✓ Rhetorical questions<br>
+                                ✓ Emotive language<br>
+                                ✓ Statistics or expert opinions<br>
+                                ✓ Rule of three<br>
+                                ✓ Direct address to reader<br>
+                                ✓ Powerful vocabulary</p>
+
+                                <p><strong>Remember:</strong><br>
+                                • Formal tone throughout<br>
+                                • Vary sentence structures<br>
+                                • Use topic sentences<br>
+                                • Link paragraphs with discourse markers<br>
+                                • End with memorable statement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="example-section">
+                <h3>💡 Tips for Effective Differentiation</h3>
+                <ul style="line-height: 2;">
+                    <li><strong>Same Learning Goal:</strong> All levels should aim for the same objective, just with different support</li>
+                    <li><strong>Multiple Entry Points:</strong> Offer choice so students can select appropriate challenge level</li>
+                    <li><strong>Flexible Grouping:</strong> Students might need different levels for different tasks</li>
+                    <li><strong>Build Independence:</strong> Gradually reduce scaffolding as students gain confidence</li>
+                    <li><strong>Vocabulary is Key:</strong> Often the main barrier is language, not understanding</li>
+                    <li><strong>Visual Support:</strong> Add diagrams, charts, or images to support all learners</li>
+                    <li><strong>Check Understanding:</strong> Regularly assess if students are at the right level</li>
+                    <li><strong>Avoid Stereotypes:</strong> Lower reading age doesn't mean lower intelligence</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="https://www.diffit.me" target="_blank" class="cta-button">Visit Diffit Website</a>
+                <a href="index.html" class="cta-button" style="background-color: var(--secondary-color); margin-left: 1rem;">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI in the Classroom. Differentiation ensures all students can access learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
