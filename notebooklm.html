@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google NotebookLM - AI Tool Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0 1rem 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+        .back-link:before {
+            content: "← ";
+        }
+        .tool-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .tool-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .tool-hero .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .ai-notice {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .ai-notice h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .ai-notice p {
+            color: #78350f;
+            line-height: 1.8;
+        }
+        .ai-tools {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .ai-tool-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            color: #92400e;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .ai-tool-badge:hover {
+            background-color: #f59e0b;
+            color: white;
+        }
+        .example-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+        .example-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .example-card {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        .example-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .example-input {
+            background-color: #f0f9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--primary-color);
+        }
+        .example-output {
+            background-color: #f0fdf4;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--accent-color);
+        }
+        .label {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .steps-list {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .steps-list ol {
+            margin-left: 1.5rem;
+        }
+        .steps-list li {
+            padding: 0.5rem 0;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>AI in the Classroom</h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <section class="tool-hero">
+        <div class="container">
+            <div class="hero-icon">📚</div>
+            <h1>Google NotebookLM</h1>
+            <p class="hero-subtitle">AI-Powered Note-Taking and Research Assistant for KS4 Revision</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="ai-notice">
+                <h3>💡 How to Use These Prompts</h3>
+                <p>
+                    NotebookLM excels at synthesizing information from multiple sources. You can recreate similar functionality
+                    by uploading or pasting content into these AI tools:
+                </p>
+                <div class="ai-tools">
+                    <a href="https://chat.openai.com" target="_blank" class="ai-tool-badge">ChatGPT</a>
+                    <a href="https://gemini.google.com" target="_blank" class="ai-tool-badge">Google Gemini</a>
+                    <a href="https://claude.ai" target="_blank" class="ai-tool-badge">Claude</a>
+                    <a href="https://copilot.microsoft.com" target="_blank" class="ai-tool-badge">Microsoft Copilot</a>
+                </div>
+                <p style="margin-top: 1rem;">
+                    These prompts help you create comprehensive revision notes by synthesizing information from textbooks,
+                    articles, and other sources - perfect for KS4 exam preparation.
+                </p>
+            </div>
+
+            <div class="tool-description">
+                <h2>What is Google NotebookLM?</h2>
+                <p>
+                    Google NotebookLM is an AI-powered research and note-taking tool that can analyze multiple sources
+                    (PDFs, documents, websites) and help you synthesize information into coherent notes, summaries, and study guides.
+                    It's particularly useful for KS4 students who need to combine information from various revision materials.
+                    The prompts below show how to create similar synthesis and revision materials using general AI tools.
+                </p>
+            </div>
+
+            <!-- Example 1: Comprehensive Revision Notes -->
+            <div class="example-section">
+                <h3>Example 1: Creating Comprehensive KS4 Revision Notes</h3>
+
+                <div class="example-card">
+                    <h4>Synthesizing Multiple Sources into Revision Notes</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "I'm creating GCSE revision notes on [TOPIC] for Year 11 students. I have multiple sources of information below.
+                            Please synthesize these into comprehensive, well-organized revision notes that include:
+                            <br><br>
+                            • **Key Concepts**: Main ideas explained clearly
+                            <br>• **Important Definitions**: All key terms with simple explanations
+                            <br>• **Key Facts & Figures**: Dates, statistics, formulas that students must memorize
+                            <br>• **Connections**: How different concepts link together
+                            <br>• **Common Exam Questions**: What typically appears in exams on this topic
+                            <br>• **Memory Aids**: Mnemonics or tricks to remember information
+                            <br>• **Common Mistakes**: What students typically get wrong
+                            <br>• **Practice Questions**: 5 exam-style questions with brief answers
+                            <br><br>
+                            Organize with clear headings and bullet points. Make it visual and easy to revise from.
+                            <br><br>
+                            SOURCE 1: [Paste textbook content]
+                            <br>SOURCE 2: [Paste article or notes]
+                            <br>SOURCE 3: [Paste additional material]"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output (Topic: Power and Conflict Poetry - GCSE English):</span>
+
+                        <p><strong>📖 GCSE REVISION NOTES: Power and Conflict Poetry Anthology</strong></p>
+
+                        <p><strong>🎯 KEY CONCEPTS:</strong></p>
+                        <ul>
+                            <li><strong>Power</strong> - Can be political, natural, individual, or collective. Consider who has power and who doesn't</li>
+                            <li><strong>Conflict</strong> - Internal (within a person), external (war, nature), personal vs societal</li>
+                            <li><strong>Context</strong> - Historical background shapes the poet's perspective and message</li>
+                            <li><strong>Structure & Form</strong> - Poets use these deliberately to reinforce meaning</li>
+                        </ul>
+
+                        <p><strong>📚 ESSENTIAL POEMS & THEMES:</strong></p>
+
+                        <p><strong>"Ozymandias" by Shelley</strong><br>
+                        • <u>Theme:</strong> Power of nature > human power; arrogance leads to downfall<br>
+                        • <strong>Key Quote:</strong> "Look on my Works, ye Mighty, and despair!" (ironic - nothing remains)<br>
+                        • <strong>Structure:</strong> Sonnet (traditionally about love) - subverted to show power's decay<br>
+                        • <strong>Context:</strong> Romantic period; criticism of tyrannical leaders like Napoleon<br>
+                        • <strong>Language:</strong> "Colossal wreck" - oxymoron shows fall from greatness</p>
+
+                        <p><strong>"The Charge of the Light Brigade" by Tennyson</strong><br>
+                        • <strong>Theme:</strong> Heroism in war; obedience vs futility of conflict<br>
+                        • <strong>Key Quote:</strong> "Theirs not to reason why, / Theirs but to do and die"<br>
+                        • <strong>Structure:</strong> Dactylic dimeter mimics galloping horses; repetition creates urgency<br>
+                        • <strong>Context:</strong> Crimean War (1854); real historical event of military blunder<br>
+                        • <strong>Language:</strong> "Jaws of Death" / "mouth of Hell" - personification; soldiers entering danger</p>
+
+                        <p><strong>"Exposure" by Wilfred Owen</strong><br>
+                        • <strong>Theme:</strong> Nature as enemy; suffering and monotony of war<br>
+                        • <strong>Key Quote:</strong> "But nothing happens"  (repeated) - anticlimax shows tedium<br>
+                        • <strong>Structure:</strong> Repetitive structure mirrors endless waiting; half-rhymes create unease<br>
+                        • <strong>Context:</strong> WW1; Owen's personal experience in trenches<br>
+                        • <strong>Language:</strong> "Dawn massing in the east her melancholy army" - personification of weather as attacker</p>
+
+                        <p><strong>🔑 KEY DEFINITIONS:</strong><br>
+                        • <strong>Juxtaposition:</strong> Placing contrasting ideas side by side (e.g., beauty and violence)<br>
+                        • <strong>Enjambment:</strong> When a sentence runs over multiple lines - shows continuous thought/action<br>
+                        • <strong>Caesura:</strong> A pause in the middle of a line - creates emphasis or disruption<br>
+                        • <strong>Sibilance:</strong> Repetition of 's' sounds - can suggest whispers, danger, or silence<br>
+                        • <strong>Volta:</strong> A turning point in a poem, especially in sonnets</p>
+
+                        <p><strong>🧠 MEMORY AIDS:</strong><br>
+                        • <strong>SMILE</strong> = Structure, Meaning, Imagery, Language, Effect (analysis framework)<br>
+                        • <strong>"Power Crumbles"</strong> = Remember poems about decline of power (Ozymandias, Prelude)<br>
+                        • <strong>"Nature Wins"</strong> = Poems where nature is more powerful (Exposure, Storm on Island, Prelude)<br>
+                        • <strong>"War is Hell"</strong> = Anti-war poems (Exposure, Charge, Remains, Poppies)</p>
+
+                        <p><strong>📊 COMPARISON STRATEGY:</strong><br>
+                        When comparing poems, use this structure:<br>
+                        1. Both poems explore [theme] but in different ways...<br>
+                        2. In [Poem A], the poet shows... through [technique]...<br>
+                        3. Similarly/In contrast, [Poem B] presents... using [technique]...<br>
+                        4. Both poets use [device] to... However, [difference]...<br>
+                        5. The contexts differ because...</p>
+
+                        <p><strong>⚠️ COMMON MISTAKES:</strong><br>
+                        ❌ Retelling the poem - you're analyzing, not summarizing<br>
+                        ❌ Identifying techniques without explaining their EFFECT<br>
+                        ❌ Ignoring context - always link to when/why it was written<br>
+                        ❌ Writing about poems separately in comparison - integrate throughout<br>
+                        ❌ Not using subject terminology (metaphor, caesura, etc.)</p>
+
+                        <p><strong>✏️ PRACTICE QUESTIONS:</strong><br>
+                        1. Compare how power is presented in "Ozymandias" and "My Last Duchess"<br>
+                        2. How does Wilfred Owen present suffering in "Exposure"?<br>
+                        3. Compare how conflict is presented in "The Charge of the Light Brigade" and "Bayonet Charge"<br>
+                        4. How does the poet present nature as powerful in "Storm on the Island"?<br>
+                        5. Compare attitudes to war in "Exposure" and "The Charge of the Light Brigade"</p>
+
+                        <p><strong>✅ EXAM TIPS:</strong><br>
+                        • Spend 45 minutes on poetry (out of 1hr 45min for whole paper)<br>
+                        • You'll be given ONE named poem - choose your comparison wisely<br>
+                        • Compare THROUGHOUT your answer - not two separate halves<br>
+                        • Always mention context, but integrate it, don't "bolt it on"<br>
+                        • Use quotations - but they can be short (single words/phrases work well)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2: Topic Connections Map -->
+            <div class="example-section">
+                <h3>Example 2: Creating Topic Connection Maps</h3>
+
+                <div class="example-card">
+                    <h4>Linking Related Concepts Across Sources</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "I'm studying [SUBJECT - e.g., GCSE Biology] and need to understand how different topics connect.
+                            Based on the information below, create a connection map showing:
+                            <br><br>
+                            • How different concepts link to each other
+                            <br>• Which topics appear in multiple specification points
+                            <br>• Dependencies (what you need to understand first before tackling other topics)
+                            <br>• Common themes or principles that run through multiple topics
+                            <br>• Typical exam question combinations (topics that appear together in questions)
+                            <br><br>
+                            Present as a clear text-based diagram or structured list showing relationships.
+                            <br><br>
+                            SPECIFICATION CONTENT: [Paste specification or syllabus content]
+                            <br>TEXTBOOK SECTIONS: [Paste relevant sections]"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output (GCSE Biology - Cells to Organisms):</span>
+
+                        <p><strong>🔗 BIOLOGY TOPIC CONNECTIONS MAP</strong></p>
+
+                        <p><strong>CENTRAL CONCEPTS (Everything links back to these):</strong></p>
+                        <ul>
+                            <li>➤ Cell Structure → determines cell function</li>
+                            <li>➤ Surface Area : Volume Ratio → affects efficiency of all processes</li>
+                            <li>➤ Enzymes → control rate of all biological reactions</li>
+                        </ul>
+
+                        <p><strong>CONNECTION PATHWAY 1: Cell Biology → Transport → Organ Systems</strong></p>
+                        <p>
+                            <strong>1. Cell Structure</strong><br>
+                            ↓ enables<br>
+                            <strong>2. Specialized Cells</strong> (red blood cells, nerve cells, etc.)<br>
+                            ↓ form<br>
+                            <strong>3. Tissues</strong> (muscle, nerve, epithelial)<br>
+                            ↓ combine into<br>
+                            <strong>4. Organs</strong> (heart, lungs, stomach)<br>
+                            ↓ work together as<br>
+                            <strong>5. Organ Systems</strong> (circulatory, digestive, nervous)
+                        </p>
+
+                        <p><strong>CONNECTION PATHWAY 2: Transport Mechanisms</strong></p>
+                        <p>
+                            <strong>Diffusion</strong> ←→ <strong>Osmosis</strong> (special case of diffusion)<br>
+                            ↓ both affected by<br>
+                            • Concentration gradient<br>
+                            • Surface area<br>
+                            • Temperature<br>
+                            ↓ applied in<br>
+                            • Gas exchange (lungs) - diffusion of O₂ and CO₂<br>
+                            • Digestion (small intestine) - absorption of nutrients<br>
+                            • Kidneys - filtration and reabsorption<br>
+                            • Plant roots - water uptake by osmosis
+                        </p>
+
+                        <p><strong>CONNECTION PATHWAY 3: Enzymes Across Topics</strong></p>
+                        <p>
+                            <strong>Enzyme Properties</strong> (lock and key, factors affecting activity)<br>
+                            ↓ apply to<br>
+                            • <strong>Digestion:</strong> Amylase, protease, lipase breaking down food<br>
+                            • <strong>Respiration:</strong> Enzymes in glycolysis and Krebs cycle<br>
+                            • <strong>Photosynthesis:</strong> Rubisco enzyme in Calvin cycle<br>
+                            • <strong>DNA Replication:</strong> DNA polymerase<br>
+                            • <strong>Protein Synthesis:</strong> RNA polymerase
+                        </p>
+
+                        <p><strong>COMMON EXAM COMBINATIONS:</strong></p>
+                        <ul>
+                            <li>✓ <strong>Digestive System + Enzymes:</strong> How enzymes break down different food types</li>
+                            <li>✓ <strong>Gas Exchange + Surface Area:</strong> Alveoli adaptations and SA:V ratio</li>
+                            <li>✓ <strong>Transport + Heart/Blood Vessels:</strong> Structure relates to function</li>
+                            <li>✓ <strong>Photosynthesis + Limiting Factors:</strong> Effect of light, CO₂, temperature</li>
+                            <li>✓ <strong>Cell Division + Cancer:</strong> Uncontrolled mitosis</li>
+                        </ul>
+
+                        <p><strong>STUDY STRATEGY:</strong></p>
+                        <p><strong>Master FIRST (Foundation concepts):</strong><br>
+                        1. Cell structure and function<br>
+                        2. Diffusion, osmosis, active transport<br>
+                        3. Enzyme properties<br>
+                        4. DNA structure</p>
+
+                        <p><strong>Study NEXT (Build on foundations):</strong><br>
+                        5. Specialized cells and tissues<br>
+                        6. Organ systems (digestive, circulatory, respiratory)<br>
+                        7. Photosynthesis and respiration<br>
+                        8. Cell division</p>
+
+                        <p><strong>Study LAST (Apply knowledge):</strong><br>
+                        9. Disease and immune system<br>
+                        10. Homeostasis and negative feedback<br>
+                        11. Genetics and inheritance<br>
+                        12. Evolution and natural selection</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Study Guide Generator -->
+            <div class="example-section">
+                <h3>Example 3: Generating Structured Study Guides</h3>
+
+                <div class="example-card">
+                    <h4>Creating Week-by-Week Revision Plans</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "I have [X weeks] until my GCSE [SUBJECT] exam. Create a structured revision plan that covers all topics.
+                            For each week, specify:
+                            <br>• Topics to revise
+                            <br>• Key resources to use (textbook chapters, videos, etc.)
+                            <br>• Practice questions or past papers to complete
+                            <br>• Self-assessment checklist
+                            <br>• Estimated time allocation
+                            <br><br>
+                            Prioritize topics based on:
+                            <br>1. How frequently they appear in exams
+                            <br>2. How many marks they're worth
+                            <br>3. Common areas of difficulty
+                            <br><br>
+                            EXAM DATE: [Date]
+                            <br>SPECIFICATION: [List all topics to cover]
+                            <br>MY WEAK AREAS: [Optional - topics you struggle with]"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output (6-Week GCSE Maths Revision Plan):</span>
+
+                        <p><strong>📅 6-WEEK GCSE MATHS REVISION PLAN</strong></p>
+
+                        <p><strong>WEEK 1: Number & Algebra Fundamentals</strong></p>
+                        <p><strong>📚 Topics:</strong><br>
+                        • Fractions, decimals, percentages<br>
+                        • Ratio and proportion<br>
+                        • Basic algebra (simplifying, expanding, factorizing)</p>
+
+                        <p><strong>📖 Resources:</strong><br>
+                        • Textbook: Chapters 1-3<br>
+                        • Video: "Percentage Increase/Decrease" (Corbettmaths)<br>
+                        • Video: "Algebraic Fractions" (Khan Academy)</p>
+
+                        <p><strong>✏️ Practice:</strong><br>
+                        • Monday-Wednesday: Topic questions (20 questions per topic)<br>
+                        • Thursday: Mixed practice - 30 questions<br>
+                        • Friday: Past paper questions on these topics (collect from last 5 years)<br>
+                        • Weekend: Mistakes review + create flashcards for formulas</p>
+
+                        <p><strong>⏱️ Time: 8-10 hours total</strong><br>
+                        • Daily: 1 hour revision + 30 mins practice<br>
+                        • Weekend: 2 hours review</p>
+
+                        <p><strong>✅ Self-Assessment Checklist:</strong><br>
+                        □ I can convert between fractions, decimals, and percentages<br>
+                        □ I can solve percentage increase/decrease problems<br>
+                        □ I can simplify ratios and solve proportion problems<br>
+                        □ I can expand single and double brackets<br>
+                        □ I can factorize expressions including quadratics<br>
+                        □ I can solve linear equations including with fractions</p>
+
+                        <hr style="margin: 1.5rem 0;">
+
+                        <p><strong>WEEK 2: Geometry & Measures (HIGH PRIORITY - 20% of exam)</strong></p>
+                        <p><strong>📚 Topics:</strong><br>
+                        • Angles (parallel lines, polygons)<br>
+                        • Pythagoras' Theorem<br>
+                        • Trigonometry (SOH CAH TOA)<br>
+                        • Area and perimeter (including circles)</p>
+
+                        <p><strong>📖 Resources:</strong><br>
+                        • Textbook: Chapters 12-15<br>
+                        • Video: "Trigonometry in Right-Angled Triangles"<br>
+                        • Worksheet: "Circle Theorems Poster" (print and learn)</p>
+
+                        <p><strong>✏️ Practice:</strong><br>
+                        • Monday: Angles rules - 25 questions<br>
+                        • Tuesday: Pythagoras - 20 questions with diagrams<br>
+                        • Wednesday: SOH CAH TOA - 20 questions<br>
+                        • Thursday: Area/Perimeter including circles - 25 questions<br>
+                        • Friday: Mixed geometry past paper questions (40 marks worth)<br>
+                        • Weekend: Create formula sheet + practice drawing accurate diagrams</p>
+
+                        <p><strong>⏱️ Time: 10-12 hours total</strong></p>
+
+                        <p><strong>✅ Self-Assessment Checklist:</strong><br>
+                        □ I can find missing angles using angle rules<br>
+                        □ I can apply Pythagoras to find missing sides<br>
+                        □ I can use sin, cos, tan to find sides and angles<br>
+                        □ I can calculate area and perimeter of composite shapes<br>
+                        □ I know the formula for circumference and area of circles<br>
+                        □ I can solve 3D Pythagoras problems</p>
+
+                        <hr style="margin: 1.5rem 0;">
+
+                        <p><strong>WEEK 3: Graphs & Equations</strong></p>
+                        <p><em>[Similar structure for remaining weeks...]</em></p>
+
+                        <p><strong>WEEK 4: Statistics & Probability</strong><br>
+                        <em>[Content...]</em></p>
+
+                        <p><strong>WEEK 5: Advanced Topics & Weak Areas</strong><br>
+                        <em>[Content...]</em></p>
+
+                        <p><strong>WEEK 6: Past Papers & Final Review</strong></p>
+                        <p><strong>📚 Focus: Full paper practice under timed conditions</strong></p>
+                        <p>• Monday: Paper 1 (Calculator) - mark and review<br>
+                        • Tuesday: Revise mistakes from Paper 1<br>
+                        • Wednesday: Paper 2 (Non-calculator) - mark and review<br>
+                        • Thursday: Revise mistakes from Paper 2<br>
+                        • Friday: Paper 3 (Calculator) - mark and review<br>
+                        • Weekend: Final review of all formula sheet + light practice only</p>
+
+                        <p><strong>🎯 REVISION PRIORITIES (Most Common Exam Topics):</strong><br>
+                        ⭐⭐⭐ CRITICAL (appear every year, worth most marks):<br>
+                        • Algebra (expanding, factorizing, solving equations)<br>
+                        • Pythagoras & Trigonometry<br>
+                        • Fractions, decimals, percentages<br>
+                        • Area and perimeter<br>
+                        <br>
+                        ⭐⭐ HIGH PRIORITY:<br>
+                        • Graphs (plotting, interpreting, solving)<br>
+                        • Probability<br>
+                        • Statistics (averages, charts)<br>
+                        <br>
+                        ⭐ IMPORTANT:<br>
+                        • Circle theorems<br>
+                        • Surds and indices<br>
+                        • Vectors</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 4: Question Generation from Sources -->
+            <div class="example-section">
+                <h3>Example 4: Generating Practice Questions from Materials</h3>
+
+                <div class="example-card">
+                    <h4>Creating Custom Practice Questions</h4>
+
+                    <div class="example-input">
+                        <span class="label">📥 Prompt to Use:</span>
+                        <p>
+                            "Based on the revision materials below, generate 20 practice questions suitable for GCSE [SUBJECT].
+                            Include a variety:
+                            <br>• 10 short answer questions (1-2 marks each)
+                            <br>• 6 medium questions (3-4 marks)
+                            <br>• 4 extended response (5-6 marks)
+                            <br><br>
+                            For each question provide:
+                            <br>• The question clearly stated
+                            <br>• Mark allocation
+                            <br>• Brief model answer or mark scheme
+                            <br>• Topic area (so I can track what I'm practicing)
+                            <br><br>
+                            Make questions similar in style to actual GCSE exam questions with appropriate command words.
+                            <br><br>
+                            REVISION MATERIAL: [Paste your notes or textbook content]"
+                        </p>
+                    </div>
+
+                    <div class="example-output">
+                        <span class="label">📤 Example Output:</span>
+                        <p><strong>PRACTICE QUESTIONS: GCSE Chemistry - Atomic Structure</strong></p>
+
+                        <p><strong>SHORT ANSWER QUESTIONS (1-2 marks)</strong></p>
+
+                        <p><strong>Q1.</strong> Define the term 'isotope'. <strong>[2 marks]</strong><br>
+                        <em>Topic: Atomic Structure - Isotopes</em></p>
+                        <p><strong>Answer:</strong> Atoms of the same element (1) with different numbers of neutrons / different mass numbers (1)</p>
+
+                        <p><strong>Q2.</strong> State the relative charge and mass of a neutron. <strong>[2 marks]</strong><br>
+                        <em>Topic: Subatomic Particles</em></p>
+                        <p><strong>Answer:</strong> Charge: 0 (1), Mass: 1 (1)</p>
+
+                        <p><strong>Q3.</strong> An atom of chlorine-37 has 17 protons. Calculate the number of neutrons. <strong>[1 mark]</strong><br>
+                        <em>Topic: Calculating Neutrons</em></p>
+                        <p><strong>Answer:</strong> 20 neutrons (1) [Accept: 37 - 17 = 20]</p>
+
+                        <hr style="margin: 1rem 0;">
+
+                        <p><strong>MEDIUM QUESTIONS (3-4 marks)</strong></p>
+
+                        <p><strong>Q11.</strong> Describe how the modern model of the atom has changed from Dalton's model. <strong>[4 marks]</strong><br>
+                        <em>Topic: Development of Atomic Model</em></p>
+                        <p><strong>Mark Scheme:</strong><br>
+                        • Dalton thought atoms were solid spheres / indivisible (1)<br>
+                        • Thomson discovered electrons / atoms divisible (1)<br>
+                        • Rutherford discovered nucleus / atoms mostly empty space (1)<br>
+                        • Bohr added electron shells / energy levels (1)<br>
+                        [Accept any 4 valid developments]</p>
+
+                        <p><strong>Q12.</strong> Copper has two main isotopes: copper-63 and copper-65. The relative atomic mass of copper is 63.5.
+                        Explain why the relative atomic mass is not a whole number. <strong>[3 marks]</strong><br>
+                        <em>Topic: Relative Atomic Mass & Isotopes</em></p>
+                        <p><strong>Mark Scheme:</strong><br>
+                        • Copper exists as a mixture of isotopes (1)<br>
+                        • Different isotopes have different masses (1)<br>
+                        • RAM is the weighted mean/average of the isotopes (1)</p>
+
+                        <hr style="margin: 1rem 0;">
+
+                        <p><strong>EXTENDED RESPONSE (5-6 marks)</strong></p>
+
+                        <p><strong>Q17.</strong> A student investigates the structure of an atom.<br>
+                        Describe the structure of an atom, including the positions and properties of protons, neutrons, and electrons.
+                        Your answer should include the relative charges and masses of these subatomic particles. <strong>[6 marks]</strong><br>
+                        <em>Topic: Atomic Structure - Comprehensive</em></p>
+
+                        <p><strong>Mark Scheme:</strong><br>
+                        • Atoms have nucleus at center and electrons around outside (1)<br>
+                        • Nucleus contains protons and neutrons (1)<br>
+                        • Electrons arranged in shells/energy levels (1)<br>
+                        • Protons: charge +1, relative mass 1 (1)<br>
+                        • Neutrons: charge 0, relative mass 1 (1)<br>
+                        • Electrons: charge -1, relative mass 0 / very small / 1/1840 (1)</p>
+
+                        <p><em>[...continues with remaining questions]</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="example-section">
+                <h3>💡 Tips for Effective Note-Taking and Revision</h3>
+                <ul style="line-height: 2;">
+                    <li><strong>Synthesize, Don't Copy:</strong> Combine information from multiple sources in your own words</li>
+                    <li><strong>Create Connections:</strong> Link new information to what you already know</li>
+                    <li><strong>Use Active Recall:</strong> Test yourself regularly instead of just re-reading notes</li>
+                    <li><strong>Make It Visual:</strong> Use diagrams, mind maps, and flowcharts to represent information</li>
+                    <li><strong>Spaced Repetition:</strong> Review notes at increasing intervals (1 day, 3 days, 1 week, 2 weeks)</li>
+                    <li><strong>Practice Questions:</strong> Always include practice questions with your notes</li>
+                    <li><strong>Identify Weak Spots:</strong> Use AI to generate extra practice on topics you struggle with</li>
+                    <li><strong>Keep It Concise:</strong> Revision notes should be summaries, not essays</li>
+                    <li><strong>Update Regularly:</strong> Add exam tips and common mistakes as you discover them</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="https://notebooklm.google.com" target="_blank" class="cta-button">Visit Google NotebookLM</a>
+                <a href="index.html" class="cta-button" style="background-color: var(--secondary-color); margin-left: 1rem;">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI in the Classroom. Effective revision requires synthesis and active practice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
