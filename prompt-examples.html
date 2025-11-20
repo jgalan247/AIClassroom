@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Examples - Teacher's Guide</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0 1rem 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+        .back-link:before {
+            content: "← ";
+        }
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+        .ai-notice {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .ai-notice h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .ai-notice p {
+            color: #78350f;
+            line-height: 1.8;
+        }
+        .ai-tools {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .ai-tool-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            color: #92400e;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .ai-tool-badge:hover {
+            background-color: #f59e0b;
+            color: white;
+        }
+        .example-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+        .example-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .example-card {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        .example-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .example-input {
+            background-color: #f0f9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--primary-color);
+        }
+        .example-output {
+            background-color: #f0fdf4;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--accent-color);
+        }
+        .label {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .steps-list {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .steps-list ol {
+            margin-left: 1.5rem;
+        }
+        .steps-list li {
+            padding: 0.5rem 0;
+            line-height: 1.8;
+        }
+        .tool-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .tool-tab-button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        .tool-tab-button:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .tool-tab-button.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .tool-content {
+            position: relative;
+        }
+        .tool-panel {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .tool-panel.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Les Rocquier School</h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">Back to Home</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>AI Prompt Examples</h1>
+            <p>Detailed, ready-to-use prompts for creating teaching resources with AI</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="ai-notice">
+                <h3>💡 How to Use These Prompts</h3>
+                <p>
+                    Copy the prompts below and paste them into AI assistants to quickly generate teaching resources.
+                    These examples work with:
+                </p>
+                <div class="ai-tools">
+                    <a href="https://chat.openai.com" target="_blank" class="ai-tool-badge">ChatGPT</a>
+                    <a href="https://gemini.google.com" target="_blank" class="ai-tool-badge">Google Gemini</a>
+                    <a href="https://claude.ai" target="_blank" class="ai-tool-badge">Claude</a>
+                    <a href="https://copilot.microsoft.com" target="_blank" class="ai-tool-badge">Microsoft Copilot</a>
+                </div>
+                <p style="margin-top: 1rem;">
+                    Simply copy the prompt, replace placeholder text with your specific content, and paste into any AI tool.
+                    Always review and verify AI-generated content before using with students.
+                </p>
+            </div>
+
+            <!-- Tool Tabs -->
+            <div class="tool-tabs">
+                <button class="tool-tab-button active" data-tool="brisk">Brisk Teaching</button>
+                <button class="tool-tab-button" data-tool="schoolai">School AI</button>
+                <button class="tool-tab-button" data-tool="diffit">Diffit</button>
+                <button class="tool-tab-button" data-tool="notebooklm">NotebookLM</button>
+                <button class="tool-tab-button" data-tool="subjects">By Subject</button>
+            </div>
+
+            <div class="tool-content">
+                <!-- Brisk Teaching Examples -->
+                <div class="tool-panel active" id="brisk">
+                    <div class="example-section">
+                        <h3>Example 1: Quiz Generation</h3>
+
+                        <div class="example-card">
+                            <h4>Creating a Multiple Choice Quiz</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Create a 10-question multiple choice quiz for Year 9 students based on the following text about photosynthesis.
+                                    Include 4 answer options for each question (A, B, C, D), mark the correct answer, and provide a brief explanation
+                                    for why each correct answer is right. Make questions range from easy recall to more challenging application questions.
+                                    <br><br>
+                                    TEXT: [Paste your text or topic content here]"
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>Photosynthesis Quiz - Year 9</strong></p>
+                                <p>
+                                    <strong>1. What is the primary function of photosynthesis?</strong><br>
+                                    A) To produce oxygen for animals<br>
+                                    B) To convert light energy into chemical energy ✓<br>
+                                    C) To break down glucose<br>
+                                    D) To absorb water from soil<br>
+                                    <em>Explanation: Photosynthesis converts light energy into chemical energy stored in glucose molecules.</em>
+                                </p>
+                                <p>
+                                    <strong>2. Which organelle is responsible for photosynthesis?</strong><br>
+                                    A) Mitochondria<br>
+                                    B) Nucleus<br>
+                                    C) Chloroplast ✓<br>
+                                    D) Ribosome<br>
+                                    <em>Explanation: Chloroplasts contain chlorophyll and are the site of photosynthesis in plant cells.</em>
+                                </p>
+                                <p><em>[...and 8 more questions]</em></p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>Short Answer Questions</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Generate 8 short answer questions for Year 11 GCSE English analyzing 'Ozymandias' by Shelley.
+                                    Include: language analysis (2), structure (2), themes (2), context (2).
+                                    Provide model answers with quotations from the poem."
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>Language Analysis:</strong><br>
+                                1. How does Shelley use irony in "Look on my Works, ye Mighty, and despair"?<br>
+                                <em>Model Answer: Shelley employs dramatic irony as the inscription intended to showcase power
+                                now highlights insignificance. The "works" have crumbled.</em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>Example 2: Personalized Feedback</h3>
+
+                        <div class="example-card">
+                            <h4>Generating Feedback on Student Writing</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Provide constructive feedback on this Year 8 persuasive essay. Focus on:
+                                    1) Strengths, 2) Areas for improvement, 3) Technical aspects, 4) Next steps.
+                                    Tone: encouraging and age-appropriate.
+                                    <br><br>
+                                    STUDENT ESSAY: [Paste student's work here]"
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>⭐ Strengths:</strong><br>
+                                • Clear argument with strong opening<br>
+                                • Good use of personal examples<br>
+                                • Effective conclusion</p>
+
+                                <p><strong>📈 Areas for Improvement:</strong><br>
+                                • Include counterarguments and refute them<br>
+                                • Add varied vocabulary<br>
+                                • Use transition phrases</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>Example 3: Lesson Plan Generation</h3>
+
+                        <div class="example-card">
+                            <h4>Creating a Complete Lesson Plan</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Create a 60-minute lesson plan for Year 7 Maths on 'Introduction to Fractions'. Include:
+                                    Learning objectives, starter (10 mins), main teaching (20 mins), guided practice (15 mins),
+                                    independent practice (10 mins), plenary (5 mins), resources, differentiation, assessment criteria."
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>Learning Objectives:</strong><br>
+                                • Understand what fractions represent<br>
+                                • Identify numerator and denominator<br>
+                                • Represent fractions visually</p>
+
+                                <p><strong>Starter:</strong> Display pizza images. "If I eat 3 of 8 slices, what portion?"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School AI Examples -->
+                <div class="tool-panel" id="schoolai">
+                    <div class="example-section">
+                        <h3>Example 1: KS4 GCSE Revision Materials</h3>
+
+                        <div class="example-card">
+                            <h4>Comprehensive Revision Notes</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Create comprehensive GCSE Biology revision notes on photosynthesis for Year 11. Include:
+                                    key concepts, the equation, factors affecting rate, required practical experiments,
+                                    real-world applications, common exam questions, memory aids, links to other topics.
+                                    Align with AQA/Edexcel GCSE specification."
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>🔑 Key Definition:</strong><br>
+                                Photosynthesis converts CO₂ and H₂O into glucose and O₂ using light energy.</p>
+
+                                <p><strong>📝 The Equation:</strong><br>
+                                6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</p>
+
+                                <p><strong>📊 Limiting Factors:</strong> Light intensity, CO₂, temperature, chlorophyll</p>
+
+                                <p><strong>🧠 Memory Aid:</strong> "Can We Get Oxygen?" = Carbon dioxide, Water, Glucose, Oxygen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-section">
+                        <h3>Example 2: GCSE-Style Practice Questions</h3>
+
+                        <div class="example-card">
+                            <h4>Science Exam Questions with Mark Schemes</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Create 10 GCSE Chemistry exam questions on atomic structure. Include:
+                                    4 short answer (1-2 marks), 4 medium (3-4 marks), 2 extended (6 marks).
+                                    For each: question with marks, detailed mark scheme, command word explanation, common mistakes.
+                                    Match AQA GCSE style."
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>Question 1 (2 marks):</strong><br>
+                                State the protons, neutrons, electrons in chlorine-35. (Atomic number = 17)</p>
+
+                                <p><strong>Mark Scheme:</strong><br>
+                                • Protons: 17 (1 mark)<br>
+                                • Neutrons: 18 (1 mark)</p>
+
+                                <p><strong>Common Mistakes:</strong> Confusing mass number with protons</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diffit Examples -->
+                <div class="tool-panel" id="diffit">
+                    <div class="example-section">
+                        <h3>Example: Text Differentiation</h3>
+
+                        <div class="example-card">
+                            <h4>Adapting Text for Different Reading Levels</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Rewrite this text about World War 2 at three levels for Year 9:
+                                    <br>1) LOWER: Simplified vocabulary, shorter sentences, clear structure
+                                    <br>2) MIDDLE: Standard vocabulary, moderate complexity
+                                    <br>3) HIGHER: Advanced vocabulary, complex sentences, analytical language
+                                    <br><br>Keep key facts the same. Add glossary for lower level.
+                                    <br><br>ORIGINAL TEXT: [Paste text here]"
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+
+                                <p><strong>LOWER:</strong><br>
+                                WW2 started in 1939. Germany, led by Hitler, invaded Poland. Britain and France declared war. The war lasted six years.
+                                <br><strong>Key Words:</strong> Invaded = entered by force</p>
+
+                                <p><strong>MIDDLE:</strong><br>
+                                WW2 began in 1939 when Nazi Germany invaded Poland. This prompted Britain and France to declare war, starting a global conflict lasting six years.</p>
+
+                                <p><strong>HIGHER:</strong><br>
+                                The outbreak of WW2 was precipitated by Nazi Germany's invasion of Poland—a calculated act compelling Britain and France to formally declare war.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NotebookLM Examples -->
+                <div class="tool-panel" id="notebooklm">
+                    <div class="example-section">
+                        <h3>Example: Creating Study Guides from Sources</h3>
+
+                        <div class="example-card">
+                            <h4>GCSE Revision Guide Generation</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use (within NotebookLM after uploading sources):</span>
+                                <p>
+                                    "Based on the uploaded GCSE Chemistry textbook, create a comprehensive revision guide for
+                                    the Atomic Structure topic. Include: key definitions, equations, worked examples,
+                                    common exam questions, memory aids, and practice questions with answers."
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>Atomic Structure Revision Guide</strong></p>
+
+                                <p><strong>Key Definitions:</strong><br>
+                                • Atom: Smallest particle of an element<br>
+                                • Proton: Positive particle in nucleus<br>
+                                • Electron: Negative particle orbiting nucleus</p>
+
+                                <p><strong>Key Equations:</strong><br>
+                                Mass number = Protons + Neutrons<br>
+                                Atomic number = Number of protons</p>
+
+                                <p><em>[Citations to specific pages in uploaded textbook included]</em></p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>Practice Question Generation</h4>
+
+                            <div class="example-input">
+                                <span class="label">📥 Prompt to Use:</span>
+                                <p>
+                                    "Generate 15 practice questions based on the uploaded sources, ranging from easy to difficult.
+                                    Include answers with citations showing where the information comes from in the sources."
+                                </p>
+                            </div>
+
+                            <div class="example-output">
+                                <span class="label">📤 Example Output:</span>
+                                <p><strong>Practice Questions:</strong></p>
+                                <p>1. What is the charge of a proton?<br>
+                                Answer: +1 (Source: Chemistry Textbook, p. 45)</p>
+
+                                <p>2. Explain why atoms are electrically neutral.<br>
+                                Answer: Equal protons and electrons balance charges (Source: Chemistry Textbook, p. 47)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject-Based Prompts -->
+                <div class="tool-panel" id="subjects">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h2 style="color: var(--primary-color); margin-bottom: 0.5rem;">Subject-Specific Prompts</h2>
+                        <p style="color: var(--text-light);">Ready-to-use prompts organized by subject area for creating PowerPoints, activities, and resources</p>
+                    </div>
+
+                    <!-- English Prompts -->
+                    <div class="example-section">
+                        <h3>📚 English Language & Literature</h3>
+
+                        <div class="example-card">
+                            <h4>📊 PowerPoint: Literary Analysis</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a PowerPoint presentation for Year 10 analyzing [NOVEL/PLAY]. Include: 1) Slide on historical context, 2) Character analysis slides with quotes, 3) Key themes with textual evidence, 4) Literary devices used, 5) Discussion questions, 6) Practice exam question. Use engaging visuals and keep text concise."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>✍️ Activity: Creative Writing Workshop</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Design a creative writing activity for Year 8 on [GENRE - e.g., horror, mystery]. Include: 1) Three image prompts, 2) Sentence starters for different abilities, 3) Word banks (adjectives, verbs), 4) Success criteria, 5) Self-assessment checklist, 6) Example paragraph showing good technique."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>📖 Resource: Reading Comprehension</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a reading comprehension resource for Year 7 using an extract about [TOPIC]. Include: 1) The text (300-400 words), 2) Vocabulary questions, 3) Retrieval questions, 4) Inference questions, 5) Language analysis question, 6) Extension task, 7) Mark scheme with example answers."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maths Prompts -->
+                    <div class="example-section">
+                        <h3>🔢 Mathematics</h3>
+
+                        <div class="example-card">
+                            <h4>📊 PowerPoint: Concept Introduction</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a PowerPoint for Year 9 introducing [MATHS CONCEPT - e.g., Pythagoras' theorem]. Include: 1) Real-world application slide, 2) Visual explanation with diagrams, 3) Step-by-step worked example, 4) Common mistakes slide, 5) Practice questions (easy, medium, hard), 6) Challenge problem. Use colors to highlight key steps."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>🧮 Activity: Problem-Solving Workshop</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Design a problem-solving activity for Year 8 on [TOPIC - e.g., fractions, algebra]. Include: 1) 10 problems at increasing difficulty, 2) Hint cards for each problem, 3) Worked solutions, 4) Real-world context questions, 5) Challenge extension, 6) Self-assessment rubric."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>📈 Resource: Differentiated Worksheet</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a differentiated worksheet on [TOPIC] for Year 7. Include three sections: MILD (10 basic questions), SPICY (8 intermediate questions with one-step problem-solving), HOT (5 multi-step problems with reasoning). Add challenge question, answer key, and extension activity."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Science Prompts -->
+                    <div class="example-section">
+                        <h3>🔬 Science</h3>
+
+                        <div class="example-card">
+                            <h4>📊 PowerPoint: Scientific Concepts</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a PowerPoint for Year 10 Science on [TOPIC - e.g., photosynthesis, energy transfers]. Include: 1) Key vocabulary slide with definitions, 2) Diagram with annotations, 3) Real-world applications, 4) Common misconceptions, 5) Exam-style questions, 6) Practical experiment suggestion. Use scientific images and clear diagrams."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>🔬 Activity: Practical Investigation</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Design a practical investigation for Year 8 on [TOPIC]. Include: 1) Research question, 2) Hypothesis, 3) Equipment list, 4) Step-by-step method with safety considerations, 5) Results table template, 6) Analysis questions, 7) Conclusion framework. Make it safe and achievable in a school lab."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>📋 Resource: GCSE Exam Practice</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create GCSE-style exam questions on [TOPIC]. Include: 1) 5 short-answer questions (1-2 marks each), 2) 3 medium questions (3-4 marks), 3) 1 extended response (6 marks), 4) Mark scheme with indicative content, 5) Command word definitions, 6) Model answers showing what high-quality responses look like."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Humanities Prompts -->
+                    <div class="example-section">
+                        <h3>🌍 History & Geography</h3>
+
+                        <div class="example-card">
+                            <h4>📊 PowerPoint: Historical Event</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a PowerPoint on [HISTORICAL EVENT/PERIOD] for Year 9 History. Include: 1) Timeline slide, 2) Key figures with images, 3) Causes slide, 4) Events slide, 5) Consequences slide, 6) Source analysis activity, 7) Significance question, 8) Links to today. Use historical images and maps."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>🗺️ Activity: Geography Investigation</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Design a geographical investigation for Year 8 on [TOPIC - e.g., rivers, climate]. Include: 1) Enquiry question, 2) Map analysis activity, 3) Data interpretation task, 4) Case study (named example), 5) Graph/chart creation, 6) Written evaluation question, 7) Links to sustainability/current issues."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>📜 Resource: Source Analysis</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a source analysis resource for Year 11 History on [TOPIC]. Include: 1) 3-4 diverse sources (written, visual, statistical), 2) Provenance information, 3) Questions on content, 4) Questions on utility/reliability, 5) Cross-reference task, 6) Mark scheme, 7) Model answer paragraph."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages Prompts -->
+                    <div class="example-section">
+                        <h3>🗣️ Modern Foreign Languages</h3>
+
+                        <div class="example-card">
+                            <h4>📊 PowerPoint: Vocabulary Topic</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a PowerPoint for Year 8 [LANGUAGE] on [TOPIC - e.g., food, family]. Include: 1) 20 key words with images, 2) Pronunciation guide, 3) Example sentences, 4) Grammar point explanation, 5) Interactive quiz slides, 6) Cultural context slide, 7) Speaking practice prompts. Use visuals for every word."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>💬 Activity: Speaking & Listening</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Design a speaking activity for Year 9 [LANGUAGE] on [TOPIC]. Include: 1) Dialogue template, 2) Question prompts, 3) Answer frameworks, 4) Role-play scenarios, 5) Peer assessment criteria, 6) Extension task (opinions/justifications), 7) Common phrases reference sheet."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>✍️ Resource: Reading & Writing</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a reading and writing resource for Year 10 [LANGUAGE] GCSE. Include: 1) Authentic text (150-200 words) on [TOPIC], 2) Comprehension questions in target language, 3) Vocabulary match activity, 4) Translation exercise (target language to English), 5) Writing task (80-100 words), 6) Mark scheme and model answers."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arts Prompts -->
+                    <div class="example-section">
+                        <h3>🎨 Art, Music & Drama</h3>
+
+                        <div class="example-card">
+                            <h4>📊 PowerPoint: Artist Study</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a PowerPoint for Year 9 Art on [ARTIST/MOVEMENT]. Include: 1) Biography slide, 2) Key artworks with analysis, 3) Techniques and style characteristics, 4) Historical/cultural context, 5) Influence on other artists, 6) Practical task inspired by their work, 7) Artist comparison opportunity."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>🎭 Activity: Drama Workshop</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Design a drama workshop for Year 8 on [SKILL/THEME - e.g., character development, physical theatre]. Include: 1) Warm-up games (3 activities), 2) Skills-building exercises, 3) Scripted scene or improvisation prompts, 4) Performance task, 5) Reflection questions, 6) Success criteria, 7) Extension: devise own scene."</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>🎵 Resource: Music Theory</h4>
+                            <div class="example-input">
+                                <span class="label">📥 Prompt:</span>
+                                <p>"Create a music theory resource for Year 7 on [TOPIC - e.g., rhythm, melody]. Include: 1) Concept explanation with musical notation, 2) Listening examples (suggest pieces), 3) Recognition exercises, 4) Composition task, 5) Performance practice ideas, 6) Assessment criteria, 7) Link to famous compositions."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="example-section">
+                <h3>💡 Tips for Best Results</h3>
+                <ul style="line-height: 2;">
+                    <li><strong>Be Specific:</strong> Include year group, subject, topic, and time allocation</li>
+                    <li><strong>Provide Context:</strong> Paste actual text or content when possible</li>
+                    <li><strong>Request Structure:</strong> Ask for specific sections or formats</li>
+                    <li><strong>Iterate:</strong> Refine outputs with follow-up prompts</li>
+                    <li><strong>Review & Edit:</strong> Always check AI content for accuracy</li>
+                    <li><strong>Save Templates:</strong> Keep effective prompts for reuse</li>
+                    <li><strong>Combine Tools:</strong> Use different AI tools for different tasks</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="index.html" class="cta-button">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div style="margin-bottom: 1rem;">
+                    <a href="https://coderra.je" target="_blank" style="text-decoration: none;">
+                        <img src="assets/coderra_logo.jpg" alt="Coderra Logo" style="height: 110px; margin-bottom: 0.5rem;">
+                    </a>
+                </div>
+                <p>&copy; 2024 <a href="https://coderra.je" target="_blank" style="color: white; text-decoration: underline;">Coderra</a>. Always review and verify AI-generated content.</p>
+                <p style="margin-top: 0.5rem; font-style: italic; opacity: 0.8;">Developed and designed by Dr Galan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tool tabs functionality
+        const toolTabButtons = document.querySelectorAll('.tool-tab-button');
+        const toolPanels = document.querySelectorAll('.tool-panel');
+
+        toolTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and panels
+                toolTabButtons.forEach(btn => btn.classList.remove('active'));
+                toolPanels.forEach(panel => panel.classList.remove('active'));
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                // Show corresponding panel
+                const tool = button.getAttribute('data-tool');
+                const targetPanel = document.getElementById(tool);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

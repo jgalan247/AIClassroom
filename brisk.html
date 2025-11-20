@@ -35,95 +35,67 @@
             font-size: 4rem;
             margin-bottom: 1rem;
         }
-        .ai-notice {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 4px solid #f59e0b;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .ai-notice h3 {
-            color: #92400e;
-            margin-bottom: 0.5rem;
-        }
-        .ai-notice p {
-            color: #78350f;
-            line-height: 1.8;
-        }
-        .ai-tools {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        .ai-tool-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: white;
-            border: 2px solid #f59e0b;
-            border-radius: 8px;
-            color: #92400e;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .ai-tool-badge:hover {
-            background-color: #f59e0b;
-            color: white;
-        }
-        .example-section {
+        .intro-section {
             background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
             margin: 2rem 0;
         }
-        .example-section h3 {
+        .intro-section h2 {
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-        .example-card {
-            background-color: var(--light-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--accent-color);
-        }
-        .example-card h4 {
-            color: var(--secondary-color);
+        .intro-section p {
+            line-height: 1.8;
             margin-bottom: 1rem;
         }
-        .example-input {
-            background-color: #f0f9ff;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid var(--primary-color);
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        .example-output {
-            background-color: #f0fdf4;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid var(--accent-color);
-        }
-        .label {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .steps-list {
+        .capability-card {
             background-color: var(--light-bg);
             padding: 1.5rem;
             border-radius: 8px;
-            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
         }
-        .steps-list ol {
-            margin-left: 1.5rem;
+        .capability-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
-        .steps-list li {
+        .capability-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .capability-card li {
             padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .capability-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .highlight-box h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .highlight-box p {
+            color: #78350f;
             line-height: 1.8;
         }
     </style>
@@ -151,318 +123,161 @@
 
     <section class="section">
         <div class="container">
-            <div class="ai-notice">
-                <h3>💡 How to Use These Prompts</h3>
-                <p>
-                    While Brisk Teaching has its own built-in AI features, you can also recreate similar functionality using general AI tools.
-                    Copy the prompts below and paste them into AI assistants like:
-                </p>
-                <div class="ai-tools">
-                    <a href="https://chat.openai.com" target="_blank" class="ai-tool-badge">ChatGPT</a>
-                    <a href="https://gemini.google.com" target="_blank" class="ai-tool-badge">Google Gemini</a>
-                    <a href="https://claude.ai" target="_blank" class="ai-tool-badge">Claude</a>
-                    <a href="https://copilot.microsoft.com" target="_blank" class="ai-tool-badge">Microsoft Copilot</a>
-                </div>
-                <p style="margin-top: 1rem;">
-                    Simply copy the prompt, replace the placeholder text with your specific content, and paste it into any of these AI tools to get instant results.
-                </p>
-            </div>
-
-            <div class="tool-description">
+            <!-- Introduction -->
+            <div class="intro-section">
                 <h2>What is Brisk Teaching?</h2>
                 <p>
-                    Brisk Teaching is a Chrome extension that integrates AI-powered features directly into your browser.
-                    It allows you to generate quizzes, feedback, lesson plans, and more from any webpage or document you're viewing.
-                    The prompts below show you how to achieve similar results using standalone AI tools.
+                    Brisk Teaching is a powerful Chrome extension that integrates AI-powered features directly into your browser.
+                    It allows you to generate quizzes, feedback, lesson plans, and differentiated materials from any webpage or
+                    document you're viewing—with just a few clicks.
+                </p>
+                <p>
+                    Simply highlight text on any website, click the Brisk button, and instantly create educational resources.
+                    The extension works seamlessly with Google Docs, news articles, educational websites, and more, making it
+                    incredibly fast and convenient for busy teachers.
                 </p>
             </div>
 
-            <!-- Example 1: Quiz Generation -->
-            <div class="example-section">
-                <h3>Example 1: Quiz Generation</h3>
+            <div class="highlight-box">
+                <h3>💡 How It Works</h3>
+                <p>
+                    Install the Chrome extension, then while browsing any webpage:
+                    <br>1. Highlight the text you want to work with
+                    <br>2. Click the Brisk icon in your browser
+                    <br>3. Choose what you want to create (quiz, worksheet, lesson plan, etc.)
+                    <br>4. Brisk instantly generates the resource for you
+                    <br>5. Review, edit if needed, and use in your classroom!
+                </p>
+            </div>
 
-                <div class="example-card">
-                    <h4>Creating a Multiple Choice Quiz</h4>
+            <!-- Key Capabilities -->
+            <h2 style="text-align: center; margin: 3rem 0 2rem 0; color: var(--text-dark);">What Can Brisk Teaching Do?</h2>
 
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create a 10-question multiple choice quiz for Year 9 students based on the following text about photosynthesis.
-                            Include 4 answer options for each question (A, B, C, D), mark the correct answer, and provide a brief explanation
-                            for why each correct answer is right. Make questions range from easy recall to more challenging application questions.
-                            <br><br>
-                            TEXT: [Paste your text or topic content here]"
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-                        <p><strong>Photosynthesis Quiz - Year 9</strong></p>
-                        <p>
-                            <strong>1. What is the primary function of photosynthesis?</strong><br>
-                            A) To produce oxygen for animals<br>
-                            B) To convert light energy into chemical energy ✓<br>
-                            C) To break down glucose<br>
-                            D) To absorb water from soil<br>
-                            <em>Explanation: Photosynthesis converts light energy into chemical energy stored in glucose molecules.</em>
-                        </p>
-                        <p>
-                            <strong>2. Which organelle is responsible for photosynthesis?</strong><br>
-                            A) Mitochondria<br>
-                            B) Nucleus<br>
-                            C) Chloroplast ✓<br>
-                            D) Ribosome<br>
-                            <em>Explanation: Chloroplasts contain chlorophyll and are the site of photosynthesis in plant cells.</em>
-                        </p>
-                        <p><em>[...and 8 more questions]</em></p>
-                    </div>
-
-                    <div class="steps-list">
-                        <strong>How to Use:</strong>
-                        <ol>
-                            <li>Copy the prompt above</li>
-                            <li>Open ChatGPT, Gemini, or your preferred AI tool</li>
-                            <li>Paste the prompt and replace [Paste your text...] with your actual content</li>
-                            <li>Review the generated quiz and adjust as needed</li>
-                            <li>Copy into your preferred format (Google Docs, worksheet, etc.)</li>
-                        </ol>
-                    </div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <h3>📝 Quiz Generation</h3>
+                    <ul>
+                        <li>Create multiple-choice quizzes from any text</li>
+                        <li>Generate short answer questions</li>
+                        <li>Add fill-in-the-blank questions</li>
+                        <li>Include true/false questions</li>
+                        <li>Automatic answer keys provided</li>
+                        <li>Adjust difficulty level as needed</li>
+                    </ul>
                 </div>
 
-                <div class="example-card">
-                    <h4>Creating Short Answer Questions</h4>
+                <div class="capability-card">
+                    <h3>✏️ Personalized Feedback</h3>
+                    <ul>
+                        <li>Generate feedback on student work</li>
+                        <li>Provide specific, actionable comments</li>
+                        <li>Highlight strengths and areas for improvement</li>
+                        <li>Suggest next steps for students</li>
+                        <li>Customize tone and detail level</li>
+                        <li>Save time on marking</li>
+                    </ul>
+                </div>
 
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Generate 8 short answer questions for Year 11 GCSE English students analyzing the poem 'Ozymandias' by Shelley.
-                            Include questions that cover: language analysis (2 questions), structure (2 questions), themes (2 questions),
-                            and context (2 questions). Provide model answers with specific quotations from the poem for each question.
-                            <br><br>
-                            POEM: [Paste the poem here]"
-                        </p>
-                    </div>
+                <div class="capability-card">
+                    <h3>📚 Lesson Plans</h3>
+                    <ul>
+                        <li>Create structured lesson plans quickly</li>
+                        <li>Include learning objectives</li>
+                        <li>Add starter, main, and plenary activities</li>
+                        <li>Align to curriculum standards</li>
+                        <li>Suggest differentiation strategies</li>
+                        <li>Include assessment opportunities</li>
+                    </ul>
+                </div>
 
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-                        <p><strong>Ozymandias Analysis Questions</strong></p>
-                        <p>
-                            <strong>Language Analysis:</strong><br>
-                            1. How does Shelley use irony in the inscription "Look on my Works, ye Mighty, and despair"?<br>
-                            <em>Model Answer: Shelley employs dramatic irony as the inscription intended to showcase Ozymandias's power
-                            now highlights his insignificance. The "works" have crumbled, and viewers despair not at his might but at
-                            the futility of human ambition against time.</em>
-                        </p>
-                        <p><em>[...7 more questions with model answers]</em></p>
-                    </div>
+                <div class="capability-card">
+                    <h3>📊 Differentiation</h3>
+                    <ul>
+                        <li>Adapt texts to different reading levels</li>
+                        <li>Simplify complex passages instantly</li>
+                        <li>Create multiple versions for different abilities</li>
+                        <li>Adjust vocabulary complexity</li>
+                        <li>Maintain key content while simplifying</li>
+                        <li>Support SEN and EAL students</li>
+                    </ul>
+                </div>
+
+                <div class="capability-card">
+                    <h3>✅ Rubrics</h3>
+                    <ul>
+                        <li>Auto-generate assessment rubrics</li>
+                        <li>Create clear success criteria</li>
+                        <li>Define performance levels</li>
+                        <li>Include specific descriptors</li>
+                        <li>Customize to your assignment</li>
+                        <li>Save and reuse rubrics</li>
+                    </ul>
+                </div>
+
+                <div class="capability-card">
+                    <h3>🎯 More Features</h3>
+                    <ul>
+                        <li>Summarize long articles</li>
+                        <li>Create vocabulary lists with definitions</li>
+                        <li>Generate discussion questions</li>
+                        <li>Build exit tickets</li>
+                        <li>Create bell ringers/warm-ups</li>
+                        <li>Works with any web content</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Example 2: Personalized Feedback -->
-            <div class="example-section">
-                <h3>Example 2: Personalized Feedback</h3>
-
-                <div class="example-card">
-                    <h4>Generating Feedback on Student Writing</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Please provide constructive feedback on this Year 8 student's persuasive essay. Focus on:
-                            1) Strengths (what they did well), 2) Areas for improvement (specific suggestions),
-                            3) Technical aspects (grammar, spelling, punctuation), 4) Next steps for improvement.
-                            Keep the tone encouraging and age-appropriate. The essay topic was 'Should schools ban homework?'
-                            <br><br>
-                            STUDENT ESSAY: [Paste student's work here]"
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-                        <p><strong>Feedback for [Student Name]</strong></p>
-
-                        <p><strong>⭐ Strengths:</strong><br>
-                        • You've made a clear argument against homework with a strong opening statement<br>
-                        • Good use of personal examples to support your points<br>
-                        • Your conclusion effectively summarizes your main arguments</p>
-
-                        <p><strong>📈 Areas for Improvement:</strong><br>
-                        • Try to include counterarguments and then refute them - this makes your argument stronger<br>
-                        • Add more varied vocabulary (instead of saying "bad" three times, try: harmful, detrimental, counterproductive)<br>
-                        • Use transition phrases between paragraphs (Furthermore, However, In addition)</p>
-
-                        <p><strong>✏️ Technical:</strong><br>
-                        • Watch out for run-on sentences - try breaking longer sentences into two<br>
-                        • Remember to start new paragraphs for new ideas<br>
-                        • Check: "there" vs "their" (you mixed these up twice)</p>
-
-                        <p><strong>🎯 Next Steps:</strong><br>
-                        • Read your essay aloud to catch awkward phrasing<br>
-                        • Research one counterargument and add a paragraph addressing it<br>
-                        • Create a list of persuasive vocabulary to use in future essays</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example 3: Lesson Plans -->
-            <div class="example-section">
-                <h3>Example 3: Lesson Plan Generation</h3>
-
-                <div class="example-card">
-                    <h4>Creating a Complete Lesson Plan</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create a detailed 60-minute lesson plan for Year 7 Maths on 'Introduction to Fractions'. Include:
-                            <br>• Learning objectives (3-4 objectives)
-                            <br>• Starter activity (10 minutes)
-                            <br>• Main teaching activity with worked examples (20 minutes)
-                            <br>• Guided practice (15 minutes)
-                            <br>• Independent practice with differentiation (10 minutes)
-                            <br>• Plenary/assessment (5 minutes)
-                            <br>• Required resources
-                            <br>• Differentiation strategies for different abilities
-                            <br>• Assessment criteria"
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-                        <p><strong>Lesson Plan: Introduction to Fractions (Year 7)</strong></p>
-
-                        <p><strong>Learning Objectives:</strong><br>
-                        • Understand what fractions represent<br>
-                        • Identify the numerator and denominator<br>
-                        • Represent fractions visually using diagrams<br>
-                        • Compare simple fractions</p>
-
-                        <p><strong>Starter (10 mins):</strong><br>
-                        Display images of pizzas cut into different portions. Ask: "If I eat 3 slices of an 8-slice pizza,
-                        what portion have I eaten?" Discuss as a class. This activates prior knowledge about sharing and division.</p>
-
-                        <p><strong>Main Teaching (20 mins):</strong><br>
-                        1. Introduce fraction terminology using visual aids<br>
-                        2. Worked Example 1: Show 3/4 using a circle divided into 4 parts<br>
-                        3. Worked Example 2: Identify fractions from different shapes<br>
-                        4. Worked Example 3: Compare 1/2 and 1/4 using diagrams</p>
-
-                        <p><em>[... continues with full lesson details, differentiation, and resources]</em></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example 4: Differentiation -->
-            <div class="example-section">
-                <h3>Example 4: Text Differentiation</h3>
-
-                <div class="example-card">
-                    <h4>Adapting Text for Different Reading Levels</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Please rewrite the following text about World War 2 at three different reading levels for Year 9 students:
-                            <br>1) LOWER: Simplified vocabulary, shorter sentences, clear structure
-                            <br>2) MIDDLE: Standard vocabulary, moderate complexity
-                            <br>3) HIGHER: Advanced vocabulary, complex sentences, analytical language
-                            <br><br>Keep the key facts the same but adjust the language complexity. Add a glossary of key terms for the lower level.
-                            <br><br>
-                            ORIGINAL TEXT: [Paste your text here]"
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-
-                        <p><strong>LOWER LEVEL:</strong><br>
-                        World War 2 started in 1939. It was a big war that involved many countries. Germany, led by Adolf Hitler,
-                        invaded Poland. This made Britain and France declare war on Germany. The war lasted six years and ended in 1945.
-                        <br><br>
-                        <strong>Key Words:</strong><br>
-                        • Invaded: entered by force<br>
-                        • Declare war: officially announce they would fight<br>
-                        • Lasted: continued for</p>
-
-                        <p><strong>MIDDLE LEVEL:</strong><br>
-                        World War 2 began in 1939 when Nazi Germany, under Adolf Hitler's leadership, invaded Poland. This aggressive
-                        action prompted Britain and France to declare war on Germany, marking the start of a global conflict. The war
-                        continued for six years, involving numerous nations across multiple continents, before finally ending in 1945.</p>
-
-                        <p><strong>HIGHER LEVEL:</strong><br>
-                        The outbreak of World War 2 in 1939 was precipitated by Nazi Germany's invasion of Poland, a calculated
-                        act of aggression by Adolf Hitler's totalitarian regime. This violation of international sovereignty compelled
-                        Britain and France to formally declare war on Germany, catalyzing a six-year global conflict that would
-                        fundamentally reshape the geopolitical landscape and result in unprecedented human casualties.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example 5: Rubric Creation -->
-            <div class="example-section">
-                <h3>Example 5: Assessment Rubric Creation</h3>
-
-                <div class="example-card">
-                    <h4>Creating a Detailed Rubric</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create a detailed assessment rubric for a Year 10 Science practical investigation report.
-                            Include 5 criteria: 1) Hypothesis and Planning, 2) Method and Safety, 3) Results and Data Presentation,
-                            4) Analysis and Evaluation, 5) Scientific Communication. Use 4 performance levels: Excellent, Good,
-                            Developing, Beginning. Make each criterion specific and measurable."
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-                        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-                            <tr style="background-color: var(--primary-color); color: white;">
-                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Criteria</th>
-                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Excellent (8-10)</th>
-                                <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Good (6-7)</th>
-                            </tr>
-                            <tr style="background-color: white;">
-                                <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Hypothesis & Planning</strong></td>
-                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
-                                    Clear, testable hypothesis with scientific reasoning. Variables clearly identified and controlled.
-                                </td>
-                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
-                                    Testable hypothesis stated. Most variables identified with some control measures.
-                                </td>
-                            </tr>
-                            <tr style="background-color: var(--light-bg);">
-                                <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Method & Safety</strong></td>
-                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
-                                    Detailed, replicable method. All safety considerations addressed appropriately.
-                                </td>
-                                <td style="padding: 0.75rem; border: 1px solid #ddd;">
-                                    Clear method that could be followed. Main safety points mentioned.
-                                </td>
-                            </tr>
-                        </table>
-                        <p style="margin-top: 1rem;"><em>[...continues with all criteria and levels]</em></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tips Section -->
-            <div class="example-section">
-                <h3>💡 Tips for Best Results</h3>
-                <ul style="line-height: 2;">
-                    <li><strong>Be Specific:</strong> Include year group, subject, and topic details in your prompts</li>
-                    <li><strong>Provide Context:</strong> Paste the actual text or content you want to work with</li>
-                    <li><strong>Request Structure:</strong> Ask for specific sections or formats you need</li>
-                    <li><strong>Iterate:</strong> If the first result isn't perfect, ask the AI to adjust specific parts</li>
-                    <li><strong>Review & Edit:</strong> Always check AI-generated content for accuracy and appropriateness</li>
-                    <li><strong>Save Templates:</strong> Keep prompts that work well for reuse with different content</li>
-                    <li><strong>Combine Tools:</strong> Use Brisk for quick tasks, detailed AI prompts for complex ones</li>
+            <!-- How Teachers Can Use It -->
+            <div class="intro-section">
+                <h2>How Teachers Can Use Brisk Teaching</h2>
+                <p><strong>For Assessment:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Highlight a textbook passage and create a quiz in seconds</li>
+                    <li>Generate formative assessment questions from lesson content</li>
+                    <li>Create exit tickets to check understanding</li>
+                    <li>Build assessment rubrics for assignments</li>
                 </ul>
+
+                <p style="margin-top: 1.5rem;"><strong>For Differentiation:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Adapt reading materials for different ability levels</li>
+                    <li>Create simplified versions for SEN students</li>
+                    <li>Generate extension tasks for high achievers</li>
+                    <li>Provide scaffolding with vocabulary support</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;"><strong>For Lesson Planning:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Turn news articles into instant lesson plans</li>
+                    <li>Create complete lessons from online resources</li>
+                    <li>Generate discussion questions for any topic</li>
+                    <li>Build lesson activities from curriculum documents</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;"><strong>For Feedback:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Generate personalized feedback comments</li>
+                    <li>Provide specific suggestions for improvement</li>
+                    <li>Save hours on marking and feedback</li>
+                    <li>Maintain consistent feedback quality</li>
+                </ul>
+            </div>
+
+            <!-- Getting Started -->
+            <div class="highlight-box">
+                <h3>🚀 Getting Started with Brisk</h3>
+                <p>
+                    <strong>Step 1:</strong> Visit the Chrome Web Store and install the Brisk Teaching extension
+                    <br><strong>Step 2:</strong> Sign up for a free account (or upgrade to Pro for more features)
+                    <br><strong>Step 3:</strong> Browse to any webpage with content you want to use
+                    <br><strong>Step 4:</strong> Highlight the text and click the Brisk icon
+                    <br><strong>Step 5:</strong> Choose your desired output and let Brisk generate it!
+                </p>
             </div>
 
             <div style="text-align: center; margin: 3rem 0;">
                 <a href="https://www.briskteaching.com" target="_blank" class="cta-button">Visit Brisk Teaching Website</a>
+                <a href="prompt-examples.html" class="cta-button" style="background-color: var(--accent-color); margin-left: 1rem;">View Prompt Examples →</a>
                 <a href="index.html" class="cta-button" style="background-color: var(--secondary-color); margin-left: 1rem;">Back to Home</a>
             </div>
         </div>
@@ -473,7 +288,7 @@
             <div class="footer-bottom">
                 <div style="margin-bottom: 1rem;">
                     <a href="https://coderra.je" target="_blank" style="text-decoration: none;">
-                        <img src="assets/logo.png" alt="Coderra Logo" style="height: 40px; margin-bottom: 0.5rem;">
+                        <img src="assets/coderra_logo.jpg" alt="Coderra Logo" style="height: 110px; margin-bottom: 0.5rem;">
                     </a>
                 </div>
                 <p>&copy; 2024 <a href="https://coderra.je" target="_blank" style="color: white; text-decoration: underline;">Coderra</a>. Always review and verify AI-generated content before use.</p>

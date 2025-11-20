@@ -35,95 +35,92 @@
             font-size: 4rem;
             margin-bottom: 1rem;
         }
-        .ai-notice {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 4px solid #f59e0b;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .ai-notice h3 {
-            color: #92400e;
-            margin-bottom: 0.5rem;
-        }
-        .ai-notice p {
-            color: #78350f;
-            line-height: 1.8;
-        }
-        .ai-tools {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        .ai-tool-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: white;
-            border: 2px solid #f59e0b;
-            border-radius: 8px;
-            color: #92400e;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .ai-tool-badge:hover {
-            background-color: #f59e0b;
-            color: white;
-        }
-        .example-section {
+        .intro-section {
             background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
             margin: 2rem 0;
         }
-        .example-section h3 {
+        .intro-section h2 {
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-        .example-card {
-            background-color: var(--light-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--accent-color);
-        }
-        .example-card h4 {
-            color: var(--secondary-color);
+        .intro-section p {
+            line-height: 1.8;
             margin-bottom: 1rem;
         }
-        .example-input {
-            background-color: #f0f9ff;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid var(--primary-color);
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        .example-output {
-            background-color: #f0fdf4;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid var(--accent-color);
-        }
-        .label {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .steps-list {
+        .capability-card {
             background-color: var(--light-bg);
             padding: 1.5rem;
             border-radius: 8px;
-            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
         }
-        .steps-list ol {
-            margin-left: 1.5rem;
+        .capability-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
-        .steps-list li {
+        .capability-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .capability-card li {
             padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .capability-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .iframe-container {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+        .iframe-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .highlight-box h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .highlight-box p {
+            color: #78350f;
             line-height: 1.8;
         }
     </style>
@@ -151,421 +148,143 @@
 
     <section class="section">
         <div class="container">
-            <div class="ai-notice">
-                <h3>💡 How to Use These Prompts</h3>
-                <p>
-                    School AI has built-in UK curriculum alignment, but you can achieve similar results with general AI tools.
-                    Copy the prompts below and use them in:
-                </p>
-                <div class="ai-tools">
-                    <a href="https://chat.openai.com" target="_blank" class="ai-tool-badge">ChatGPT</a>
-                    <a href="https://gemini.google.com" target="_blank" class="ai-tool-badge">Google Gemini</a>
-                    <a href="https://claude.ai" target="_blank" class="ai-tool-badge">Claude</a>
-                    <a href="https://copilot.microsoft.com" target="_blank" class="ai-tool-badge">Microsoft Copilot</a>
-                </div>
-                <p style="margin-top: 1rem;">
-                    These prompts are specifically designed for UK curriculum requirements (GCSE, KS4) but can be adapted for other systems.
-                </p>
-            </div>
-
-            <div class="tool-description">
+            <!-- Introduction -->
+            <div class="intro-section">
                 <h2>What is School AI?</h2>
                 <p>
-                    School AI is a UK-focused educational AI platform with built-in safeguarding features, curriculum alignment,
-                    and age-appropriate content filters. It's designed specifically for schools with GDPR compliance and safety features.
-                    The prompts below help you create similar curriculum-aligned content using general AI tools.
+                    School AI is a UK-focused educational AI platform specifically designed for schools with built-in safeguarding features,
+                    curriculum alignment, and age-appropriate content filters. Unlike general AI tools, School AI is tailored for the
+                    UK education system with GDPR compliance and safety features that make it suitable for student use.
+                </p>
+                <p>
+                    The platform provides a safe environment where students can ask questions, get explanations, and receive support
+                    with their learning—all while teachers maintain oversight and control. For teachers, it offers powerful tools to
+                    create curriculum-aligned resources, exam questions, and revision materials mapped to UK specifications.
                 </p>
             </div>
 
-            <!-- Example 1: KS4 Revision Materials -->
-            <div class="example-section">
-                <h3>Example 1: KS4 GCSE Revision Materials</h3>
+            <!-- Key Capabilities -->
+            <h2 style="text-align: center; margin: 3rem 0 2rem 0; color: var(--text-dark);">What Can School AI Do?</h2>
 
-                <div class="example-card">
-                    <h4>Creating Comprehensive Revision Notes</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create comprehensive GCSE Biology revision notes on photosynthesis for a Year 11 student.
-                            Structure the notes with:
-                            <br>• Key concepts and definitions
-                            <br>• The photosynthesis equation
-                            <br>• Factors affecting rate of photosynthesis (light intensity, CO2, temperature, chlorophyll)
-                            <br>• Required practical experiments
-                            <br>• Real-world applications
-                            <br>• Common exam questions and what examiners look for
-                            <br>• Memory aids and mnemonics
-                            <br>• Links to other biology topics
-                            <br><br>
-                            Use simple language but include all scientific terminology. Align with AQA/Edexcel GCSE specification."
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-                        <p><strong>GCSE Biology Revision: Photosynthesis</strong></p>
-
-                        <p><strong>🔑 Key Definition:</strong><br>
-                        Photosynthesis is the process by which plants make their own food using light energy, converting carbon dioxide
-                        and water into glucose and oxygen.</p>
-
-                        <p><strong>📝 The Equation:</strong><br>
-                        Carbon dioxide + Water → Glucose + Oxygen<br>
-                        6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂<br>
-                        (Light energy is required, chlorophyll is the catalyst)</p>
-
-                        <p><strong>📊 Limiting Factors:</strong><br>
-                        1. <strong>Light Intensity:</strong> As light increases, rate increases until another factor limits<br>
-                        2. <strong>CO₂ Concentration:</strong> Higher CO₂ = faster rate (up to a point)<br>
-                        3. <strong>Temperature:</strong> Optimum around 25°C; enzymes denature above 45°C<br>
-                        4. <strong>Chlorophyll:</strong> Disease or lack of nutrients can reduce chlorophyll</p>
-
-                        <p><strong>🔬 Required Practical:</strong><br>
-                        Using pondweed to investigate effect of light intensity on rate of photosynthesis<br>
-                        • Count bubbles of oxygen OR measure volume of gas<br>
-                        • Change distance of lamp to vary light intensity<br>
-                        • Control variables: temperature, CO₂, same plant</p>
-
-                        <p><strong>🎯 Exam Tips:</strong><br>
-                        • "Rate" questions = look for limiting factors<br>
-                        • Always mention chlorophyll is needed (catalyst)<br>
-                        • Light provides ENERGY (common mistake: light is not a reactant)<br>
-                        • Know inverse square law for light intensity</p>
-
-                        <p><strong>🧠 Memory Aid:</strong><br>
-                        "Can We Get Oxygen?" = Carbon dioxide, Water, Glucose, Oxygen</p>
-
-                        <p><em>[...continues with more detail]</em></p>
-                    </div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <h3>📚 KS4 Exam Revision</h3>
+                    <ul>
+                        <li>Create tailored GCSE revision materials</li>
+                        <li>Generate topic-specific study guides</li>
+                        <li>Build comprehensive revision checklists</li>
+                        <li>Produce flashcards and memory aids</li>
+                        <li>Align content to exam board specifications (AQA, Edexcel, OCR)</li>
+                    </ul>
                 </div>
 
-                <div class="example-card">
-                    <h4>Creating Revision Flashcards</h4>
+                <div class="capability-card">
+                    <h3>✏️ Practice Questions</h3>
+                    <ul>
+                        <li>Generate exam-style questions across all subjects</li>
+                        <li>Create questions at different difficulty levels</li>
+                        <li>Include detailed mark schemes</li>
+                        <li>Provide model answers showing best practice</li>
+                        <li>Use official exam command words</li>
+                    </ul>
+                </div>
 
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create 20 GCSE revision flashcards for Macbeth. For each flashcard provide:
-                            <br>• FRONT: A question or key term
-                            <br>• BACK: The answer with a brief explanation
-                            <br><br>
-                            Cover: key quotes (5), themes (5), character analysis (5), context (3), exam technique (2).
-                            Make questions similar to actual GCSE exam questions. Include Act and Scene references."
-                        </p>
-                    </div>
+                <div class="capability-card">
+                    <h3>🎯 Mark Schemes</h3>
+                    <ul>
+                        <li>Create detailed marking criteria</li>
+                        <li>Show indicative content for answers</li>
+                        <li>Explain assessment objectives (AO1-AO4)</li>
+                        <li>Provide grade boundaries guidance</li>
+                        <li>Include examiner tips and common mistakes</li>
+                    </ul>
+                </div>
 
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
+                <div class="capability-card">
+                    <h3>💬 Student Chatbot</h3>
+                    <ul>
+                        <li>Safe AI assistant for student questions</li>
+                        <li>Age-appropriate language and explanations</li>
+                        <li>Built-in content filtering</li>
+                        <li>Encourages independent learning</li>
+                        <li>Teacher oversight and monitoring</li>
+                    </ul>
+                </div>
 
-                        <p><strong>Flashcard 1:</strong><br>
-                        <strong>FRONT:</strong> Quote showing Macbeth's ambition at the start<br>
-                        <strong>BACK:</strong> "I have no spur to prick the sides of my intent, but only vaulting ambition" (Act 1, Scene 7)
-                        - Shows Macbeth knows ambition is his only motivation, foreshadows his downfall</p>
+                <div class="capability-card">
+                    <h3>📖 Curriculum-Aligned Content</h3>
+                    <ul>
+                        <li>Mapped to UK National Curriculum</li>
+                        <li>Covers all key stages (KS3, KS4, KS5)</li>
+                        <li>Subject-specific content across the curriculum</li>
+                        <li>Links to specification points</li>
+                        <li>Regularly updated with curriculum changes</li>
+                    </ul>
+                </div>
 
-                        <p><strong>Flashcard 2:</strong><br>
-                        <strong>FRONT:</strong> How does Lady Macbeth challenge gender stereotypes?<br>
-                        <strong>BACK:</strong> She rejects femininity ("unsex me here") and shows masculine traits like ambition and cruelty.
-                        In Jacobean times, this would shock audiences as women were expected to be submissive.</p>
-
-                        <p><strong>Flashcard 3:</strong><br>
-                        <strong>FRONT:</strong> What is the supernatural's role in the play?<br>
-                        <strong>BACK:</strong> The witches act as catalysts for Macbeth's ambition. Ambiguous whether they control fate or
-                        reveal it. Jacobean audience believed in witchcraft - James I wrote "Daemonologie"</p>
-
-                        <p><em>[...17 more flashcards]</em></p>
-                    </div>
+                <div class="capability-card">
+                    <h3>🔒 Safety & Safeguarding</h3>
+                    <ul>
+                        <li>GDPR compliant for UK schools</li>
+                        <li>Built-in content filters</li>
+                        <li>Age-appropriate responses</li>
+                        <li>No personal data storage</li>
+                        <li>Teacher controls and monitoring</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Example 2: GCSE Practice Questions -->
-            <div class="example-section">
-                <h3>Example 2: GCSE-Style Practice Questions</h3>
-
-                <div class="example-card">
-                    <h4>Science Exam Questions with Mark Schemes</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create 10 GCSE Chemistry exam-style questions on atomic structure and the periodic table.
-                            Include a variety of question types:
-                            <br>• 4 short answer questions (1-2 marks each)
-                            <br>• 4 medium questions (3-4 marks)
-                            <br>• 2 extended response questions (6 marks each)
-                            <br><br>
-                            For each question provide:
-                            <br>1. The question with mark allocation
-                            <br>2. Detailed mark scheme with all acceptable answers
-                            <br>3. Command word explanation
-                            <br>4. Common mistakes students make
-                            <br><br>
-                            Use command words like: state, describe, explain, compare, evaluate. Match AQA GCSE style."
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-
-                        <p><strong>Question 1 (2 marks):</strong><br>
-                        State the number of protons, neutrons and electrons in an atom of chlorine-35.<br>
-                        (Atomic number of chlorine = 17)</p>
-
-                        <p><strong>Mark Scheme:</strong><br>
-                        • Protons: 17 (1 mark)<br>
-                        • Neutrons: 18 (1 mark) [Accept: 35-17=18]<br>
-                        • Electrons: 17 (accept if given, but not required for marks)</p>
-
-                        <p><strong>Command Word:</strong> "State" = give a specific fact without explanation</p>
-
-                        <p><strong>Common Mistakes:</strong><br>
-                        • Confusing mass number (35) with protons<br>
-                        • Forgetting to subtract protons from mass number to get neutrons</p>
-
-                        <hr style="margin: 1rem 0;">
-
-                        <p><strong>Question 5 (4 marks):</strong><br>
-                        Explain why Group 1 metals become more reactive as you go down the group.</p>
-
-                        <p><strong>Mark Scheme:</strong><br>
-                        • More electron shells / electrons further from nucleus (1 mark)<br>
-                        • Weaker force of attraction between nucleus and outer electron (1 mark)<br>
-                        • Outer electron lost more easily (1 mark)<br>
-                        • Therefore more reactive (1 mark)</p>
-
-                        <p><strong>Command Word:</strong> "Explain" = give reasons with scientific understanding, not just description</p>
-
-                        <p><strong>Common Mistakes:</strong><br>
-                        • Just saying "bigger atoms" without explaining WHY this matters<br>
-                        • Not linking to electrons being lost<br>
-                        • Describing what happens, not explaining why</p>
-
-                        <p><em>[...8 more questions with mark schemes]</em></p>
-                    </div>
+            <!-- Try School AI -->
+            <div class="iframe-container">
+                <h2>Try School AI</h2>
+                <div class="highlight-box">
+                    <h3>🎓 Student Access</h3>
+                    <p>
+                        Use the interactive chatbot below to ask questions and get help with your learning.
+                        School AI provides safe, age-appropriate responses aligned with the UK curriculum.
+                        Try asking about topics you're studying or request help with exam preparation!
+                    </p>
                 </div>
 
-                <div class="example-card">
-                    <h4>Maths Problem-Solving Questions</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create 8 GCSE Maths exam questions on Pythagoras' Theorem and Trigonometry.
-                            Include questions at different grades:
-                            <br>• 2 questions at Grade 4-5 (Foundation)
-                            <br>• 3 questions at Grade 6-7 (Foundation/Higher crossover)
-                            <br>• 3 questions at Grade 8-9 (Higher)
-                            <br><br>
-                            For each question include:
-                            <br>• The question with a diagram description
-                            <br>• Full worked solution showing all steps
-                            <br>• Mark allocation
-                            <br>• What marks are awarded for (method marks vs accuracy marks)
-                            <br><br>
-                            Use real-world contexts where possible."
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-
-                        <p><strong>Question 1 (Grade 4-5) - 3 marks:</strong><br>
-                        A ladder is 5m long. It is placed against a wall with the base 3m from the wall.
-                        How high up the wall does the ladder reach?<br>
-                        [Diagram: Right-angled triangle, hypotenuse 5m, base 3m]</p>
-
-                        <p><strong>Solution:</strong><br>
-                        a² + b² = c²<br>
-                        3² + b² = 5²<br>
-                        9 + b² = 25<br>
-                        b² = 16<br>
-                        b = 4m</p>
-
-                        <p><strong>Mark Scheme:</strong><br>
-                        • Correct formula stated or implied (1 mark - method)<br>
-                        • Correct substitution and working (1 mark - method)<br>
-                        • Correct answer 4m (1 mark - accuracy)</p>
-
-                        <hr style="margin: 1rem 0;">
-
-                        <p><strong>Question 6 (Grade 8-9) - 5 marks:</strong><br>
-                        A ship sails 50km on a bearing of 120° from port A to port B.
-                        It then sails on a bearing of 200° from port B to port C.
-                        Port C is due south of port A. Calculate the distance from B to C.<br>
-                        [Diagram: Triangle with marked bearings]</p>
-
-                        <p><strong>Solution:</strong><br>
-                        Step 1: Find angle in triangle at B<br>
-                        Bearing angle = 200° - 120° = 80°<br>
-                        Interior angle = 180° - 80° = 100°<br>
-                        <br>
-                        Step 2: Find angle at A using bearings<br>
-                        Angle at A = 180° - 120° = 60°<br>
-                        <br>
-                        Step 3: Find angle at C<br>
-                        Angle at C = 180° - 60° - 100° = 20°<br>
-                        <br>
-                        Step 4: Use sine rule<br>
-                        BC/sin(60°) = 50/sin(20°)<br>
-                        BC = 50 × sin(60°) / sin(20°)<br>
-                        BC = 126.6 km (1 d.p.)</p>
-
-                        <p><strong>Mark Scheme:</strong><br>
-                        • Finding interior angle at B (1 mark)<br>
-                        • Finding angle at A (1 mark)<br>
-                        • Finding angle at C (1 mark)<br>
-                        • Correct use of sine rule (1 mark)<br>
-                        • Correct answer (1 mark)</p>
-
-                        <p><em>[...6 more questions]</em></p>
-                    </div>
+                <div class="iframe-wrapper">
+                    <iframe src="https://student.schoolai.com/dot/spaces/join?code=AWSM-8EC3"
+                            title="School AI Student Chatbot"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
 
-            <!-- Example 3: Student Chatbot Style Q&A -->
-            <div class="example-section">
-                <h3>Example 3: Student-Friendly Explanations</h3>
+            <!-- How Teachers Can Use It -->
+            <div class="intro-section">
+                <h2>How Teachers Can Use School AI</h2>
+                <p><strong>For Lesson Planning:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Generate curriculum-aligned lesson plans and resources</li>
+                    <li>Create differentiated materials for different ability levels</li>
+                    <li>Develop starter activities and plenaries</li>
+                    <li>Build assessment resources with mark schemes</li>
+                </ul>
 
-                <div class="example-card">
-                    <h4>Breaking Down Complex Concepts</h4>
+                <p style="margin-top: 1.5rem;"><strong>For GCSE Preparation:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Create practice exam questions mapped to specifications</li>
+                    <li>Generate revision guides and study materials</li>
+                    <li>Produce topic-specific worksheets and activities</li>
+                    <li>Build mock exams with authentic question styles</li>
+                </ul>
 
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "I'm a Year 11 GCSE student struggling to understand [TOPIC]. Can you explain it in simple terms,
-                            then show me an example, and finally give me a practice question to try?
-                            <br><br>
-                            Use an encouraging, supportive tone. Break down complex vocabulary. Use analogies where helpful.
-                            Make sure the explanation prepares me for exam questions on this topic."
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output (Topic: Electrolysis):</span>
-
-                        <p><strong>📚 Simple Explanation:</strong><br>
-                        Electrolysis is using electricity to break apart compounds. Think of it like using electric energy to
-                        "split up" substances that are stuck together.<br><br>
-
-                        Here's what happens:<br>
-                        1. You dissolve or melt a compound (called an electrolyte)<br>
-                        2. You put in two electrodes (metal rods) connected to a battery<br>
-                        3. The electricity makes ions move: positive ions go to the negative electrode, negative ions go to the positive electrode<br>
-                        4. When ions reach the electrodes, they gain or lose electrons and turn back into atoms</p>
-
-                        <p><strong>💡 Helpful Analogy:</strong><br>
-                        Imagine a school dance where boys and girls are holding hands (bonded). Then the teachers (electricity)
-                        tell all boys to go to one side and all girls to the other - they separate! That's basically electrolysis.</p>
-
-                        <p><strong>📖 Example:</strong><br>
-                        Let's look at electrolysis of copper chloride solution:<br>
-                        • Copper chloride splits into Cu²⁺ ions and Cl⁻ ions<br>
-                        • Cu²⁺ (positive) moves to negative electrode (cathode)<br>
-                        • Cl⁻ (negative) moves to positive electrode (anode)<br>
-                        • At cathode: Cu²⁺ + 2e⁻ → Cu (copper metal forms)<br>
-                        • At anode: 2Cl⁻ → Cl₂ + 2e⁻ (chlorine gas forms)</p>
-
-                        <p><strong>✏️ Now You Try:</strong><br>
-                        During electrolysis of sodium chloride solution:<br>
-                        a) Which ions are present?<br>
-                        b) Which ion goes to the cathode?<br>
-                        c) What substance forms at the cathode?<br>
-                        <br>
-                        <em>(Hint: Remember positive ions go to the negative electrode!)</em></p>
-
-                        <p><strong>✅ Answers:</strong><br>
-                        a) Na⁺ and Cl⁻ ions (and H⁺ and OH⁻ from water)<br>
-                        b) Na⁺ goes to cathode (but H⁺ is preferentially discharged, so hydrogen forms)<br>
-                        c) Hydrogen gas</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example 4: Curriculum-Aligned Content -->
-            <div class="example-section">
-                <h3>Example 4: Exam Board Specific Content</h3>
-
-                <div class="example-card">
-                    <h4>Creating Board-Specific Revision</h4>
-
-                    <div class="example-input">
-                        <span class="label">📥 Prompt to Use:</span>
-                        <p>
-                            "Create a revision checklist for AQA GCSE English Literature Paper 2.
-                            Include:
-                            <br>• Exact text requirements (which texts, modern prose)
-                            <br>• Question structure and mark allocation
-                            <br>• What each question assesses (AO1, AO2, AO3, AO4)
-                            <br>• Timing recommendations
-                            <br>• Key quotations to memorize for [SPECIFIC TEXT]
-                            <br>• Example questions for practice
-                            <br>• Top tips from examiners' reports
-                            <br><br>
-                            Make it specific to AQA specification, not general advice."
-                        </p>
-                    </div>
-
-                    <div class="example-output">
-                        <span class="label">📤 Example Output:</span>
-
-                        <p><strong>AQA GCSE English Literature Paper 2 Revision Checklist</strong></p>
-
-                        <p><strong>📋 Paper Structure (1 hour 45 mins, 96 marks):</strong><br>
-                        <strong>Section A: Modern Texts (40 marks, ~50 mins)</strong><br>
-                        • One essay question on your studied modern text<br>
-                        • Extract provided + whole text question<br>
-                        • AO1 (12 marks): Textual references and quotations<br>
-                        • AO2 (12 marks): Language, form, structure analysis<br>
-                        • AO3 (12 marks): Context<br>
-                        • AO4 (4 marks): SPaG</p>
-
-                        <p><strong>Section B: Poetry Anthology (30 marks, ~35 mins)</strong><br>
-                        • Compare one named poem with another of your choice<br>
-                        • Focus on theme or technique<br>
-                        • AO1 & AO2 combined</p>
-
-                        <p><strong>Section C: Unseen Poetry (26 marks, ~30 mins)</strong><br>
-                        • Q1: One unseen poem analysis (24 marks)<br>
-                        • Q2: Compare with second unseen (8 marks)</p>
-
-                        <p><strong>⏰ Timing Strategy:</strong><br>
-                        • Section A: 50 minutes (most marks here)<br>
-                        • Section B: 35 minutes<br>
-                        • Section C: 30 minutes<br>
-                        • Leave 5 minutes for checking SPaG</p>
-
-                        <p><strong>📖 Key Quotations for An Inspector Calls:</strong><br>
-                        1. "We are responsible for each other" - Priestley's socialist message<br>
-                        2. "As if a girl of that sort would ever refuse money!" - Mr Birling's class prejudice<br>
-                        3. "Fire and blood and anguish" - Inspector's warning, WW2 context<br>
-                        <em>[...continues with 15 more quotations]</em></p>
-
-                        <p><strong>✅ Examiner Tips from Reports:</strong><br>
-                        • Always link to context - but don't just "bolt on" context facts<br>
-                        • Track through the extract, don't just spot quotes<br>
-                        • Use subject terminology accurately (dramatic irony, symbolism, etc.)<br>
-                        • In poetry, compare THROUGHOUT your answer, not in separate paragraphs</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tips Section -->
-            <div class="example-section">
-                <h3>💡 Tips for GCSE Revision Content</h3>
-                <ul style="line-height: 2;">
-                    <li><strong>Be Specific with Exam Board:</strong> Mention AQA, Edexcel, OCR, etc. in your prompts</li>
-                    <li><strong>Include Grade Targets:</strong> Specify if content should be Foundation or Higher tier</li>
-                    <li><strong>Ask for Mark Schemes:</strong> Always request marking criteria alongside questions</li>
-                    <li><strong>Request Command Words:</strong> Ask AI to use official exam command words (state, explain, evaluate)</li>
-                    <li><strong>Link to Specification:</strong> Mention specific specification points if you know them</li>
-                    <li><strong>Include Context:</strong> For English and History, always request contextual information</li>
-                    <li><strong>Use Past Papers:</strong> Combine AI-generated content with official past papers</li>
-                    <li><strong>Verify Accuracy:</strong> Always double-check scientific facts and historical dates</li>
+                <p style="margin-top: 1.5rem;"><strong>For Student Support:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Provide students with safe AI assistance for homework</li>
+                    <li>Create personalized learning pathways</li>
+                    <li>Generate intervention materials for struggling students</li>
+                    <li>Build extension tasks for high achievers</li>
                 </ul>
             </div>
 
             <div style="text-align: center; margin: 3rem 0;">
                 <a href="https://www.theschool.ai" target="_blank" class="cta-button">Visit School AI Website</a>
+                <a href="prompt-examples.html" class="cta-button" style="background-color: var(--accent-color); margin-left: 1rem;">View Prompt Examples →</a>
                 <a href="index.html" class="cta-button" style="background-color: var(--secondary-color); margin-left: 1rem;">Back to Home</a>
             </div>
         </div>
@@ -576,7 +295,7 @@
             <div class="footer-bottom">
                 <div style="margin-bottom: 1rem;">
                     <a href="https://coderra.je" target="_blank" style="text-decoration: none;">
-                        <img src="assets/logo.png" alt="Coderra Logo" style="height: 40px; margin-bottom: 0.5rem;">
+                        <img src="assets/coderra_logo.jpg" alt="Coderra Logo" style="height: 110px; margin-bottom: 0.5rem;">
                     </a>
                 </div>
                 <p>&copy; 2024 <a href="https://coderra.je" target="_blank" style="color: white; text-decoration: underline;">Coderra</a>. Always verify curriculum alignment and accuracy before use.</p>

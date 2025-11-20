@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Water Cycle Quiz</title>
+    <style>
+        /* CSS for a simple, dyslexia-friendly design */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 30px;
+        }
+
+        .question-box {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .question-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #343a40;
+        }
+
+        .option-label {
+            display: block;
+            background: #fff;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            border: 1px solid #dee2e6;
+        }
+
+        .option-label:hover {
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Styling for the user's selection (radio button is hidden) */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Visual feedback after selection */
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+        }
+
+        .rationale {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 5px solid #007BFF;
+            background-color: #eaf6ff;
+            font-style: italic;
+            display: none; /* Hide until answer is shown */
+        }
+        
+        .hint-text {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 10px;
+            padding-left: 5px;
+            display: none; /* Hide until activated */
+        }
+
+        .submit-btn, .next-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover, .next-btn:hover {
+            background-color: #218838;
+        }
+
+        .results-box {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            background-color: #eaf6ff;
+            display: none;
+        }
+
+        .results-box h2 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>💧 The Water Cycle Quiz 💧</h1>
+    <div id="quiz-container">
+        </div>
+    <button class="submit-btn" onclick="submitQuiz()">Finish Quiz</button>
+    <div id="results" class="results-box">
+        </div>
+</div>
+
+<script>
+    // The Quiz Data (JSON structure from the previous response)
+    const quizData = [
+        {
+            "questionNumber": 1,
+            "question": "When the sun warms up water in a lake or river, which process makes the water turn into an invisible gas and float up?",
+            "answerOptions": [
+                { "text": "Condensation", "isCorrect": false, "rationale": "Condensation is when the gas cools down and turns back into a liquid (clouds)." },
+                { "text": "Precipitation", "isCorrect": false, "rationale": "Precipitation is when the water falls from the sky (rain, snow)." },
+                { "text": "Evaporation", "isCorrect": true, "rationale": "Evaporation is the process where heat turns liquid water into water vapor (a gas)." },
+                { "text": "Collection", "isCorrect": false, "rationale": "Collection is when water gathers on the ground after falling." }
+            ],
+            "hint": "This is the first step where the water starts to go up into the sky."
+        },
+        {
+            "questionNumber": 2,
+            "question": "Which word means the water vapor (gas) cools down and changes back into tiny liquid drops to form a cloud?",
+            "answerOptions": [
+                { "text": "Evaporation", "isCorrect": false, "rationale": "Evaporation is the first step where water turns from liquid to gas." },
+                { "text": "Collection", "isCorrect": false, "rationale": "Collection is the final step where water gathers on the ground." },
+                { "text": "Condensation", "isCorrect": true, "rationale": "Condensation happens when water vapor in the air gets cold and changes back into a liquid state." },
+                { "text": "Precipitation", "isCorrect": false, "rationale": "Precipitation is the name for water falling from the clouds." }
+            ],
+            "hint": "This is the stage where clouds are created."
+        },
+        {
+            "questionNumber": 3,
+            "question": "When the clouds get too heavy, water falls back to Earth as rain, snow, or hail. What is this falling water called?",
+            "answerOptions": [
+                { "text": "Condensation", "isCorrect": false, "rationale": "Condensation is the process of forming clouds, not the falling of water." },
+                { "text": "Precipitation", "isCorrect": true, "rationale": "Precipitation is the term for any form of water that falls from the atmosphere to the Earth's surface." },
+                { "text": "Evaporation", "isCorrect": false, "rationale": "Evaporation is when water goes up into the sky as gas." },
+                { "text": "Collection", "isCorrect": false, "rationale": "Collection is when water gathers on the ground." }
+            ],
+            "hint": "Rain and snow are examples of this word."
+        },
+        {
+            "questionNumber": 4,
+            "question": "After the rain falls, the water gathers in rivers, lakes, and oceans. What is this stage called?",
+            "answerOptions": [
+                { "text": "Infiltration", "isCorrect": false, "rationale": "Infiltration is only the water soaking into the ground, not all water gathering." },
+                { "text": "Collection", "isCorrect": true, "rationale": "In the collection stage, water gathers in large bodies of water, ready for the cycle to start again." },
+                { "text": "Transpiration", "isCorrect": false, "rationale": "Transpiration is when plants release water vapor, which is not what the question describes." },
+                { "text": "Condensation", "isCorrect": false, "rationale": "Condensation is the process of forming clouds." }
+            ],
+            "hint": "This is the final step before the cycle begins again with the Sun's heat."
+        },
+        {
+            "questionNumber": 5,
+            "question": "In the water cycle, water changes from a liquid (like in a river) to a gas (water vapor). Which process is this?",
+            "answerOptions": [
+                { "text": "Collection", "isCorrect": false, "rationale": "Collection is when the water gathers as a liquid after it falls." },
+                { "text": "Condensation", "isCorrect": false, "rationale": "Condensation is changing from a gas back to a liquid." },
+                { "text": "Evaporation", "isCorrect": true, "rationale": "Evaporation is the process of changing from a liquid state to a gaseous state." },
+                { "text": "Precipitation", "isCorrect": false, "rationale": "Precipitation is the process of water falling back to Earth." }
+            ],
+            "hint": "Think of steam rising from a hot pan."
+        },
+        {
+            "questionNumber": 6,
+            "question": "When water vapor cools and turns back into tiny liquid drops, what is the main thing that is formed high in the sky?",
+            "answerOptions": [
+                { "text": "Rivers", "isCorrect": false, "rationale": "Rivers are formed on the ground during the Collection stage." },
+                { "text": "The Sun", "isCorrect": false, "rationale": "The Sun drives the cycle but is not formed by the water drops." },
+                { "text": "Rain", "isCorrect": false, "rationale": "Rain is the falling of water, which happens after the water drops have gathered." },
+                { "text": "Clouds", "isCorrect": true, "rationale": "The tiny liquid water drops that form from condensation gather together to make visible clouds." }
+            ],
+            "hint": "This is where we see the water before it falls as precipitation."
+        },
+        {
+            "questionNumber": 7,
+            "question": "The Sun heats a lake (Evaporation). The vapor rises. What is the next stage when the vapor meets cold air?",
+            "answerOptions": [
+                { "text": "Precipitation", "isCorrect": false, "rationale": "Precipitation happens after the clouds are formed and become too heavy." },
+                { "text": "Collection", "isCorrect": false, "rationale": "Collection is the final step on the ground." },
+                { "text": "Condensation", "isCorrect": true, "rationale": "After the water evaporates and rises, it cools in the atmosphere and begins to condense into clouds." },
+                { "text": "Evaporation", "isCorrect": false, "rationale": "Evaporation is the stage that just happened before this step." }
+            ],
+            "hint": "You need to think of the four steps in order: Evaporation, C______, Precipitation, Collection."
+        },
+        {
+            "questionNumber": 8,
+            "question": "Which of these is a form of precipitation?",
+            "answerOptions": [
+                { "text": "Dew", "isCorrect": false, "rationale": "Dew forms on the ground overnight and does not fall from a cloud." },
+                { "text": "Sleet", "isCorrect": true, "rationale": "Sleet, rain, snow, and hail are all ways precipitation can fall from the clouds." },
+                { "text": "Groundwater", "isCorrect": false, "rationale": "Groundwater is collected water that has soaked into the ground." },
+                { "text": "Water Vapor", "isCorrect": false, "rationale": "Water vapor is the invisible gas in the air (Evaporation stage)." }
+            ],
+            "hint": "This term means water falling from a cloud."
+        },
+        {
+            "questionNumber": 9,
+            "question": "What causes water vapor to change back into liquid drops during condensation?",
+            "answerOptions": [
+                { "text": "The wind", "isCorrect": false, "rationale": "Wind can move the clouds, but it does not cause the state change from gas to liquid." },
+                { "text": "High pressure", "isCorrect": false, "rationale": "Air pressure is related to weather but is not the main reason for the water to cool and change state." },
+                { "text": "Cold temperatures", "isCorrect": true, "rationale": "Condensation occurs because the water vapor cools down high in the atmosphere." },
+                { "text": "The Sun's heat", "isCorrect": false, "rationale": "The Sun's heat causes evaporation, which is the opposite process." }
+            ],
+            "hint": "What happens to a mirror when you take a hot shower?"
+        },
+        {
+            "questionNumber": 10,
+            "question": "What best describes the entire water cycle?",
+            "answerOptions": [
+                { "text": "Water changing from liquid to gas and staying in the sky.", "isCorrect": false, "rationale": "The water must fall back down to complete the cycle." },
+                { "text": "A one-time event where rain fills the oceans.", "isCorrect": false, "rationale": "The cycle is continuous and never-ending." },
+                { "text": "The constant movement of water all around Earth.", "isCorrect": true, "rationale": "The water cycle is a continuous process that ensures water is always moving between the Earth's surface and the atmosphere." },
+                { "text": "The way the wind pushes clouds from one country to another.", "isCorrect": false, "rationale": "This is part of the weather, but not the entire cycle of state changes and collection." }
+            ],
+            "hint": "The cycle never stops and repeats over and over again."
+        }
+    ];
+
+    const quizContainer = document.getElementById('quiz-container');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.querySelector('.submit-btn');
+
+    function loadQuiz() {
+        quizData.forEach((qItem, qIndex) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question-box');
+            questionDiv.innerHTML = `
+                <div class="question-text">${qItem.questionNumber}. ${qItem.question}</div>
+            `;
+            
+            qItem.answerOptions.forEach((option, oIndex) => {
+                const optionId = `q${qIndex}o${oIndex}`;
+                const label = document.createElement('label');
+                label.classList.add('option-label');
+                label.setAttribute('for', optionId);
+                label.innerHTML = `
+                    <input type="radio" id="${optionId}" name="question${qIndex}" value="${option.isCorrect ? 'correct' : 'incorrect'}">
+                    ${option.text}
+                `;
+                
+                // Add click listener to show rationale and highlight on selection (optional: real quizzes wait for submit)
+                label.addEventListener('click', function() {
+                    // Clear previous highlighting for this question
+                    document.querySelectorAll(`label[for^="q${qIndex}o"]`).forEach(l => {
+                        l.classList.remove('correct', 'incorrect');
+                    });
+                    // Highlight the clicked label (optional)
+                    // label.classList.add('selected'); 
+                });
+
+                questionDiv.appendChild(label);
+            });
+
+            // Add hidden elements for feedback/help
+            questionDiv.innerHTML += `
+                <div id="rationale${qIndex}" class="rationale"></div>
+                <div class="hint-text">Hint: ${qItem.hint}</div>
+            `;
+
+            quizContainer.appendChild(questionDiv);
+        });
+    }
+
+    function submitQuiz() {
+        let score = 0;
+        const totalQuestions = quizData.length;
+
+        // Disable the submit button after one submission
+        submitButton.disabled = true;
+        submitButton.style.backgroundColor = '#6c757d';
+
+        quizData.forEach((qItem, qIndex) => {
+            const questionName = `question${qIndex}`;
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            const rationaleDiv = document.getElementById(`rationale${qIndex}`);
+            const questionDiv = rationaleDiv.closest('.question-box');
+            
+            // Hide all hints before revealing results
+            questionDiv.querySelector('.hint-text').style.display = 'none';
+
+            // Loop through all options to apply correct/incorrect styling and show rationale
+            qItem.answerOptions.forEach((option, oIndex) => {
+                const optionId = `q${qIndex}o${oIndex}`;
+                const label = document.querySelector(`label[for="${optionId}"]`);
+                
+                // Show the rationale text
+                if (option.isCorrect) {
+                    rationaleDiv.innerHTML = `**Correct Answer:** ${option.text}. ${option.rationale}`;
+                    rationaleDiv.style.borderLeftColor = '#28a745'; // Green border for correct
+                }
+                
+                // Apply styling
+                if (option.isCorrect) {
+                    label.classList.add('correct');
+                }
+                
+                if (selectedOption && label.getAttribute('for') === selectedOption.id) {
+                    // This is the one the user picked
+                    if (selectedOption.value === 'correct') {
+                        score++;
+                    } else {
+                        // Mark user's incorrect choice
+                        label.classList.add('incorrect');
+                        rationaleDiv.innerHTML = `**Your Answer (Incorrect):** ${label.textContent.trim()}.<br>${rationaleDiv.innerHTML}`;
+                    }
+                }
+
+                // Disable radio buttons after submission
+                document.getElementById(optionId).disabled = true;
+            });
+
+            // Show rationale feedback
+            rationaleDiv.style.display = 'block';
+
+        });
+
+        // Display Results
+        resultsContainer.style.display = 'block';
+        resultsContainer.innerHTML = `
+            <h2>Quiz Finished!</h2>
+            <p>You scored **${score} out of ${totalQuestions}**.</p>
+            <p>That's **${Math.round((score / totalQuestions) * 100)}%**!</p>
+            <p>Review the answers above to see how you did.</p>
+        `;
+    }
+
+    // Start the quiz when the page loads
+    window.onload = loadQuiz;
+</script>
+
+</body>
+</html>
